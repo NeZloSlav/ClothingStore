@@ -8,19 +8,12 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="Clothing Store"
-        Icon="{Icon:MaterialImage Kind=TshirtCrew}"
         Height="750"
         Width="1250">
     
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="6*" />
-        </Grid.RowDefinitions>
-
-        <Frame x:Name="frameMenu" NavigationUIVisibility="Hidden"/>
-
+    <Grid Background ="#C8C6B1">
+        
         <Frame x:Name="frameContent" Grid.Row="1" NavigationUIVisibility="Hidden"/>
-
+		
     </Grid>
 </Window>

@@ -10,20 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClothingStore.Pages
+namespace ClothingStore.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для LoginPage.xaml
+    /// Логика взаимодействия для RegistrationWindow.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegistrationWindow : Window
     {
-        public LoginPage()
+        public RegistrationWindow()
         {
             InitializeComponent();
+        }
 
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow logWindow = new LoginWindow();
+            this.Close();
+            logWindow.Show();
         }
     }
 }

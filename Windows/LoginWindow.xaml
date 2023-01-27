@@ -1,0 +1,83 @@
+﻿<Window x:Class="ClothingStore.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClothingStore.Windows"
+        mc:Ignorable="d"
+        Title="LoginWindow"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Height="500" 
+        Width="700">
+
+    <Grid Grid.Column="1" Background="#737955" ClipToBounds="True">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--Left Part-->
+        
+        <Grid>
+            <Image Source="/Images/StoreImage3.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.6"/>
+        </Grid>
+        
+        <!--Right Part-->
+
+        <Grid Grid.Column="1" Margin="20">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            
+            <!--Title-->
+
+            <TextBlock TextWrapping="Wrap">
+                <Run FontSize="28" FontWeight="Light" Foreground="#B2393E">Вход / Авторизация</Run>
+                <LineBreak/>
+                <Run FontSize="14" FontWeight="Light">Войдите в аккаунт и получите доступ ко всем возможностям </Run>
+                <Run FontSize="14" FontWeight="Regular" Foreground="#B2393E">сервиса</Run>
+                <Run FontSize="14">.</Run>
+            </TextBlock>
+
+            <!--User Form-->
+            
+            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
+                <TextBlock Text="Номер телефона или почта" FontSize="14" FontWeight="Light" Margin="5 0 0 3"/>
+                <TextBox Style="{StaticResource logTextBoxStyle}" x:Name="tbxLogin"/>
+
+                <TextBlock Text="Пароль" FontSize="14" FontWeight="Light" Margin="5 40 0 3"/>
+                <PasswordBox Style="{StaticResource logPasswordBoxStyle}" x:Name="tbxPassword"/>
+            </StackPanel>
+            
+            <!--Bottom Part-->
+
+            <StackPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 10 0 0">
+
+                <Button x:Name="btnRegistration"
+                        Style="{StaticResource logEnterButtonStyle}" 
+                        Content="Войти"
+                        Width="170"
+                        HorizontalAlignment="Center"/>
+
+                <Grid Margin="0 30 0 0">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Hyperlink FontSize="14" FontWeight="Regular" Foreground="#B2393E" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Hyperlink FontSize="14" FontWeight="Regular" Foreground="#B2393E">Зайти как гость</Hyperlink>
+                    </TextBlock>
+                </Grid>
+
+            </StackPanel>
+
+        </Grid>
+        
+    </Grid>
+    
+</Window>
