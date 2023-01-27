@@ -1,0 +1,26 @@
+﻿<Window x:Class="ClothingStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClothingStore"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Clothing Store"
+        Icon="{Icon:MaterialImage Kind=TshirtCrew}"
+        Height="750"
+        Width="1250">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <Frame x:Name="frameMenu" NavigationUIVisibility="Hidden"/>
+
+        <Frame x:Name="frameContent" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>
