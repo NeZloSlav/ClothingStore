@@ -30,5 +30,10 @@ namespace ClothingStore.Windows
             this.Close();
             logWindow.Show();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
