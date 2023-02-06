@@ -125,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB\" />
-    <Folder Include="Res\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\StoreImage1.jpg" />
