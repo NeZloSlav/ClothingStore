@@ -74,7 +74,7 @@
                         Style="{StaticResource logEnterButtonStyle}" 
                         Content="Войти"
                         Width="170"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center" Click="btnRegistration_Click"/>
 
                 <Grid Margin="0 30 0 0">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
