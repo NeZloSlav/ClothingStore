@@ -54,16 +54,16 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             
-            
-
             <!--User Form-->
             
-            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 0">
-                <TextBlock Text="Номер телефона или почта" Style="{StaticResource logTextBlockStyle}" Foreground="#f7ebd3" Margin="5 0 0 3"/>
-                <TextBox Style="{StaticResource logTextBoxStyle}" x:Name="tbxLogin"/>
+            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">
+                
+                <TextBlock Text="Номер телефона или почта" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 0 0 3"/>
+                <TextBox Style="{StaticResource logReverseTextBoxStyle}" x:Name="tbxLogin"/>
 
-                <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle}" Foreground="#f7ebd3" Margin="5 40 0 3"/>
-                <PasswordBox Style="{StaticResource logPasswordBoxStyle}" x:Name="tbxPassword"/>
+                <TextBlock Text="Пароль" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 40 0 3"/>
+                <PasswordBox Style="{StaticResource logReversePasswordBoxStyle}" x:Name="tbxPassword"/>
+                
             </StackPanel>
             
             <!--Bottom Part-->
@@ -71,12 +71,12 @@
             <StackPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 10 0 0">
 
                 <Button x:Name="btnRegistration"
-                        Style="{StaticResource logEnterButtonStyle}" 
+                        Style="{StaticResource logReverseEnterButtonStyle}" 
                         Content="Войти"
                         Width="170"
-                        HorizontalAlignment="Center" Click="btnRegistration_Click"/>
+                        HorizontalAlignment="Center"/>
 
-                <Grid Margin="0 30 0 0">
+                <Grid Margin="0 50 0 0">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
                             <Hyperlink FontSize="14" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>

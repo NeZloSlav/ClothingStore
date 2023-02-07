@@ -5,6 +5,13 @@
              StartupUri="Windows/LoginWindow.xaml">
     <Application.Resources>
 
+        <SolidColorBrush x:Key="Color1" Color="#f7ebd3"/>
+        <SolidColorBrush x:Key="Color2" Color="#ffdbaf"/>
+        <SolidColorBrush x:Key="Color3" Color="#ca7b42"/>
+        <SolidColorBrush x:Key="Color4" Color="#823919"/>
+        <SolidColorBrush x:Key="Color5" Color="#521908"/>
+        <SolidColorBrush x:Key="Color6" Color="#B2393E"/>
+
         <!--#region Login/Registration Window Styles-->
 
         <Style x:Key="logTextBlockStyle" TargetType="TextBlock">
@@ -14,14 +21,15 @@
             <Setter Property="Margin" Value="5 10 0 3" />
         </Style>
 
+        <Style x:Key="logReverseTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource logTextBlockStyle}">
+            <Setter Property="Foreground" Value="#f7ebd3" />
+        </Style>
+
 
         <!--#region Login Text Box Style-->
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#521908"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#B2393E"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#B2393E"/>
         <Style x:Key="logTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="BorderBrush" Value="#521908"/>
             <Setter Property="Foreground" Value="#521908"/>
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
@@ -41,10 +49,36 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="logReverseTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource logTextBoxStyle}">
+            <Setter Property="Background" Value="#f7ebd3"/>
+            <Setter Property="BorderBrush" Value="#f7ebd3"/>
+            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" Value="#823919"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#f7ebd3"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -57,7 +91,7 @@
         <Style x:Key="logPasswordBoxStyle" TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="✦"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="BorderBrush" Value="#521908"/>
             <Setter Property="Foreground" Value="#823919"/>
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
@@ -76,10 +110,36 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="logReversePasswordBoxStyle" TargetType="PasswordBox" BasedOn="{StaticResource logPasswordBoxStyle}">
+            <Setter Property="Background" Value="#f7ebd3"/>
+            <Setter Property="BorderBrush" Value="#f7ebd3"/>
+            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border x:Name="border" CornerRadius="8"  Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#823919"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#f7ebd3"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -98,20 +158,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="Transparent"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#521908"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#B2393E"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#521908"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#823919"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+    
+        
         <Style x:Key="logEnterButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="#823919"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color4}"/>
             <Setter Property="FontWeight" Value="Light" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Height" Value="35" />
@@ -130,18 +183,46 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="Transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Color5}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color4}"/>
                                 <Setter Property="Foreground" Value="#f7ebd3" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="logReverseEnterButtonStyle" TargetType="Button" BasedOn="{StaticResource logEnterButtonStyle}">
+            <Setter Property="Background" Value="{StaticResource Color1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color4}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color3}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Color3}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color1}"/>
+                                <Setter Property="Foreground" Value="#f7ebd3" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

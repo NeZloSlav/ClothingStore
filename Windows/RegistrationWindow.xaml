@@ -55,7 +55,7 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <TextBlock Text="Номер телефона" Style="{StaticResource logTextBlockStyle}" Margin="5 0 0 3"/>
+                <TextBlock Text="Номер телефона" Style="{StaticResource logTextBlockStyle}" Margin="5 20 0 3"/>
                 <TextBox Style="{StaticResource logTextBoxStyle}" x:Name="tbxPhone"/>
 
                 <TextBlock Text="Почта" Style="{StaticResource logTextBlockStyle}"/>
@@ -104,7 +104,7 @@
 
             <!--Bottom Part-->
 
-            <Grid Grid.Row="3" Margin="20 40 20 0">
+            <Grid Grid.Row="3" Margin="20 20 20 0">
 
                 <Button x:Name="btnRegistration"
                         Content="Сохранить"
