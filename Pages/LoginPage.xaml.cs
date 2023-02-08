@@ -18,5 +18,15 @@ namespace ClothingStore.Pages
         {
             NavigateClass.logRegFrame.Navigate(new RegistrationPage());
         }
+
+        private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

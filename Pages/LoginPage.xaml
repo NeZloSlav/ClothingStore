@@ -70,15 +70,15 @@
                         Style="{StaticResource logReverseEnterButtonStyle}" 
                         Content="Войти"
                         Width="170"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center" Click="btnRegistration_Click"/>
 
                 <Grid Margin="0 50 0 0">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Hyperlink FontSize="14" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
+                            <Hyperlink FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>
 
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <Hyperlink FontSize="14" FontWeight="Regular" Foreground="#f7ebd3">Зайти как гость</Hyperlink>
+                            <Hyperlink FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click_1">Зайти как гость</Hyperlink>
                     </TextBlock>
                 </Grid>
 

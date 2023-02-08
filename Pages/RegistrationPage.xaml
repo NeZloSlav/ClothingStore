@@ -85,8 +85,8 @@
                     <TextBlock Text="Пол" Style="{StaticResource logTextBlockStyle}"/>
 
                     <StackPanel Orientation="Horizontal" >
-                        <ToggleButton Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской"/>
-                        <ToggleButton Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="15 0 0 0"/>
+                        <ToggleButton x:Name="tglbtnMale" Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской" Checked="tglbtn_Checked"/>
+                        <ToggleButton x:Name="tglbtnFemale" Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="15 0 0 0" Checked="tglbtn_Checked"/>
                     </StackPanel>
                 </StackPanel>
 
