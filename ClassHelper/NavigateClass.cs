@@ -6,5 +6,7 @@ namespace ClothingStore.ClassHelper
     {
         public static Frame navigFrame;
 
+        public static Frame logRegFrame;
+
     }
 }

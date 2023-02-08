@@ -1,17 +1,13 @@
-﻿<Window x:Class="ClothingStore.Windows.LoginWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ClothingStore.Windows"
-        mc:Ignorable="d"
-        Title="LoginWindow"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        ResizeMode="NoResize"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Height="600" 
-        Width="800">
+﻿<Page x:Class="ClothingStore.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClothingStore.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" 
+      d:DesignWidth="800"
+      Title="LoginPage">
 
     <Grid Grid.Column="1" Background="#521908" ClipToBounds="True">
 
@@ -21,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <!--Left Part-->
-        
+
         <Grid>
             <Image Source="/Images/StoreImage3.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
             <Border>
@@ -43,29 +39,29 @@
                 </TextBlock>
             </Grid>
         </Grid>
-        
+
         <!--Right Part-->
 
         <Grid Grid.Column="1" Margin="20">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="4*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
-            
+
             <!--User Form-->
-            
+
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">
-                
+
                 <TextBlock Text="Номер телефона или почта" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 0 0 3"/>
                 <TextBox Style="{StaticResource logReverseTextBoxStyle}" x:Name="tbxLogin"/>
 
                 <TextBlock Text="Пароль" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 40 0 3"/>
                 <PasswordBox Style="{StaticResource logReversePasswordBoxStyle}" x:Name="tbxPassword"/>
-                
+
             </StackPanel>
-            
+
             <!--Bottom Part-->
 
             <StackPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 10 0 0">
@@ -89,7 +85,6 @@
             </StackPanel>
 
         </Grid>
-        
+
     </Grid>
-    
-</Window>
+</Page>
