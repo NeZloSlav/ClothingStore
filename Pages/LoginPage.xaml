@@ -54,11 +54,22 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">
 
-                <TextBlock Text="Номер телефона или почта" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 0 0 3"/>
+                <DockPanel Margin="5 0 5 3">
+                    <TextBlock Text="Номер телефона или почта" Style="{StaticResource logReverseTextBlockStyle}" Margin="0" DockPanel.Dock="Left"/>
+
+                    <TextBlock x:Name="tbNumberOrEmail" Text="×××" Style="{StaticResource logReverseTextBlockStyle}" HorizontalAlignment="Right" Visibility="Hidden"/>
+                </DockPanel>
+
                 <TextBox Style="{StaticResource logReverseTextBoxStyle}" x:Name="tbxLogin"/>
 
-                <TextBlock Text="Пароль" Style="{StaticResource logReverseTextBlockStyle}" Margin="5 40 0 3"/>
+                <DockPanel Margin="5 40 5 3">
+                    <TextBlock Text="Пароль" Style="{StaticResource logReverseTextBlockStyle}" />
+
+                    <TextBlock x:Name="tbPassword" Text="×××" Style="{StaticResource logReverseTextBlockStyle}" HorizontalAlignment="Right" Visibility="Hidden"/>
+                </DockPanel>
+
                 <PasswordBox Style="{StaticResource logReversePasswordBoxStyle}" x:Name="tbxPassword"/>
+                
 
             </StackPanel>
 
@@ -74,11 +85,11 @@
 
                 <Grid Margin="0 50 0 0">
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Hyperlink FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
+                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>
 
                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <Hyperlink FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="Hyperlink_Click_1">Зайти как гость</Hyperlink>
+                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="hlink_Click">Зайти как гость</Hyperlink>
                     </TextBlock>
                 </Grid>
 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace ClothingStore.ClassHelper
 {
@@ -7,6 +8,8 @@ namespace ClothingStore.ClassHelper
         public static Frame navigFrame;
 
         public static Frame logRegFrame;
+
+        public static Window currentWindow;
 
     }
 }

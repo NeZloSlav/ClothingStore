@@ -10,6 +10,8 @@
         ResizeMode="NoResize"
         Title="LogRegWindow"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Background="Transparent"
+        AllowsTransparency="True"
         Height="600" 
         Width="800">
     <Grid>

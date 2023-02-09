@@ -16,6 +16,8 @@ namespace ClothingStore.Windows
             NavigateClass.logRegFrame = frmLogReg;
             NavigateClass.logRegFrame.Navigate(new Pages.LoginPage());
 
+            NavigateClass.currentWindow = this;
+
 
         }
 

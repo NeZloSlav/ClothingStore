@@ -23,7 +23,17 @@
 
         <ListView Grid.Row="2"
                   x:Name="lvProduct"
-                  Margin="5" d:ItemsSource="{d:SampleData ItemCount=5}">
+                  Margin="5"
+                  d:ItemsSource="{d:SampleData ItemCount=15}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                        
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
 
             <!--<ListView.View>
                 
