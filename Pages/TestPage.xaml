@@ -39,6 +39,14 @@
                 
             </ListView.View>-->
 
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!--Шаблон одного элемента-->
@@ -59,7 +67,7 @@
                             <TextBlock Text="Цена"
                                        FontWeight="Bold"/>
                         </StackPanel>
-                        
+
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
