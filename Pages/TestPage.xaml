@@ -27,14 +27,6 @@
                   d:ItemsSource="{d:SampleData ItemCount=15}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
-                        
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
             <!--<ListView.View>
                 
             </ListView.View>-->

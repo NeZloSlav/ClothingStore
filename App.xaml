@@ -13,26 +13,35 @@
         <SolidColorBrush x:Key="Color6" Color="#B2393E"/>
 
         <!--#region Login/Registration Window Styles-->
+        
+        <!--#region Login Text Block Styles-->
 
-        <Style x:Key="logTextBlockStyle" TargetType="TextBlock">
+        <Style x:Key="logTextBlockStyle1" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#823919" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Margin" Value="5 10 0 5" />
             <Setter Property="FontSize" Value="18" />
         </Style>
 
-        <Style x:Key="logReverseTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource logTextBlockStyle}">
+        <Style x:Key="logTextBlockStyle2" TargetType="TextBlock" BasedOn="{StaticResource logTextBlockStyle1}">
             <Setter Property="Foreground" Value="#f7ebd3" />
+            <Setter Property="Margin" Value="35 0 0 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
+
+        <!--#endregion-->
 
 
         <!--#region Login Text Box Style-->
-        <Style x:Key="logTextBoxStyle" TargetType="{x:Type TextBox}">
+        <Style x:Key="logTextBoxStyle1" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="#521908"/>
             <Setter Property="Foreground" Value="#521908"/>
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Width" Value="275" />
+            <Setter Property="Height" Value="32" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -59,7 +68,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="logReverseTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource logTextBoxStyle}">
+        <Style x:Key="logTextBoxStyle2" TargetType="TextBox" BasedOn="{StaticResource logTextBoxStyle1}">
             <Setter Property="Background" Value="#f7ebd3"/>
             <Setter Property="BorderBrush" Value="#f7ebd3"/>
             <Setter Property="Foreground" Value="#521908"/>
@@ -85,9 +94,11 @@
             </Setter>
         </Style>
         <!--#endregion-->
+        
 
-
-        <Style x:Key="logPasswordBoxStyle" TargetType="{x:Type PasswordBox}">
+        <!--#region Login Password Box Styles-->
+        
+        <Style x:Key="logPasBoxStyle1" TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="✦"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="#521908"/>
@@ -95,6 +106,7 @@
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Width" Value="275" />
+            <Setter Property="Height" Value="32" />
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="AllowDrop" Value="true"/>
@@ -120,7 +132,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="logReversePasswordBoxStyle" TargetType="PasswordBox" BasedOn="{StaticResource logPasswordBoxStyle}">
+        <Style x:Key="logPasBoxStyle2" TargetType="PasswordBox" BasedOn="{StaticResource logPasBoxStyle1}">
             <Setter Property="Background" Value="#f7ebd3"/>
             <Setter Property="BorderBrush" Value="#f7ebd3"/>
             <Setter Property="Foreground" Value="#521908"/>
@@ -146,6 +158,8 @@
             </Setter>
         </Style>
 
+        <!--#endregion-->
+        
 
         <!--#region Login Button Style-->
         <Style x:Key="FocusVisual">
@@ -159,7 +173,7 @@
         </Style>
     
         
-        <Style x:Key="logEnterButtonStyle" TargetType="{x:Type Button}">
+        <Style x:Key="logButtonStyle1" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
@@ -201,7 +215,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="logReverseEnterButtonStyle" TargetType="Button" BasedOn="{StaticResource logEnterButtonStyle}">
+        <Style x:Key="logButtonStyle2" TargetType="Button" BasedOn="{StaticResource logButtonStyle1}">
             <Setter Property="Background" Value="{StaticResource Color1}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
             <Setter Property="Foreground" Value="{StaticResource Color4}"/>
@@ -228,7 +242,25 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <!--#endregion-->
+
+
+        <!--#region Login Border Styles -->
+
+        <Style x:Key="logBorderExceptionStyle1" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{StaticResource Color1}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Width" Value="17" />
+            <Setter Property="Height" Value="17" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Visibility" Value="Hidden" />
+        </Style>
+
+        <!--#endregion-->
+
 
         <!--#region Date Picker Style-->
         <Style x:Key="DatePickerStyle1" TargetType="{x:Type DatePicker}">
@@ -383,6 +415,7 @@
             </Setter>
         </Style>
         <!--#endregion-->
+        
         
         <!--#region Toggle Button Style-->
         <Style x:Key="ToggleFocusVisual">

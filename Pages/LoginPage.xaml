@@ -9,7 +9,7 @@
       d:DesignWidth="800"
       Title="LoginPage">
 
-    <Grid Grid.Column="1" Background="#521908" ClipToBounds="True">
+    <Grid Grid.Column="1" Background="{StaticResource Color5}" ClipToBounds="True">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -19,81 +19,107 @@
         <!--Left Part-->
 
         <Grid>
+
             <Image Source="/Images/StoreImage3.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+
             <Border>
                 <Border.Background>
                     <SolidColorBrush Color="#f7ebd3" Opacity="0.7"/>
                 </Border.Background>
             </Border>
 
-            <Grid Margin="20">
-                <!--Title-->
+            <TextBlock Style="{StaticResource logTextBlockStyle1}" VerticalAlignment="Bottom"  Margin="20 20 -300 0" Width="550">
+                <Run FontSize="70">Clothing Store</Run>
+                <LineBreak/>
+                <Run FontSize="22">Одежда и обувь премиум качества </Run>
 
-                <TextBlock TextWrapping="Wrap">
-                <Run FontSize="40" FontWeight="Light" Foreground="#823919">Вход / Авторизация</Run>
-                <LineBreak/>
-                <LineBreak/>
-                <Run FontSize="20" FontWeight="Light" Foreground="#521908">Войдите в аккаунт и получите доступ ко всем возможностям </Run>
-                <Run FontSize="20" FontWeight="Regular" Foreground="#823919" Cursor="IBeam">сервиса</Run>
-                <Run FontSize="20" Foreground="#521908">.</Run>
-                </TextBlock>
-            </Grid>
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="90" CenterY="-165" CenterX="285"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
         </Grid>
 
         <!--Right Part-->
 
-        <Grid Grid.Column="1" Margin="20">
+        <Grid Grid.Column="1" Margin="20 20 20 25">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="4*" />
+                <RowDefinition Height="5*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
+            <!--Title-->
+
+            <Grid Grid.Row="0">
+
+                <TextBlock TextWrapping="Wrap">
+                    <Run FontSize="30" FontWeight="Light" Foreground="{StaticResource Color1}">Вход / Авторизация</Run>
+                    <LineBreak/>
+                    <LineBreak/>
+                    <Run FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}">Войдите в аккаунт и получите доступ ко всем возможностям </Run>
+                    <Run FontSize="18" FontWeight="Regular" Foreground="{StaticResource Color3}" Cursor="IBeam">сервиса</Run>
+                    <Run FontSize="18" Foreground="{StaticResource Color1}">.</Run>
+                </TextBlock>
+
+            </Grid>
+
             <!--User Form-->
 
-            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-                <DockPanel Margin="5 0 5 3">
-                    <TextBlock Text="Номер телефона или почта" Style="{StaticResource logReverseTextBlockStyle}" Margin="0" DockPanel.Dock="Left"/>
+                <TextBlock Text="Номер телефона или почта" Style="{StaticResource logTextBlockStyle2}" Margin="35 0 5 5"/>
 
-                    <TextBlock x:Name="tbNumberOrEmail" Text="×××" Style="{StaticResource logReverseTextBlockStyle}" HorizontalAlignment="Right" Visibility="Hidden"/>
-                </DockPanel>
+                <Grid Width="340">
+                    
+                    <Border x:Name="brdNumberOrEmailExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockStyle2}" FontSize="23" Margin="0 -5 0 0"/>
+                    </Border>
 
-                <TextBox Style="{StaticResource logReverseTextBoxStyle}" x:Name="tbxLogin"/>
+                    <TextBox x:Name="tbxNumberOrEmail" Style="{StaticResource logTextBoxStyle2}" LostFocus="tbxLogin_LostFocus"/>
+                    
+                </Grid>
 
-                <DockPanel Margin="5 40 5 3">
-                    <TextBlock Text="Пароль" Style="{StaticResource logReverseTextBlockStyle}" />
 
-                    <TextBlock x:Name="tbPassword" Text="×××" Style="{StaticResource logReverseTextBlockStyle}" HorizontalAlignment="Right" Visibility="Hidden"/>
-                </DockPanel>
+                <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle2}" Margin="35 40 5 5"/>
 
-                <PasswordBox Style="{StaticResource logReversePasswordBoxStyle}" x:Name="tbxPassword"/>
-                
+                <Grid Width="340">
+
+                    <Border x:Name="brdPasswordExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockStyle2}" FontSize="23" Margin="0 -5 0 0"/>
+                    </Border>
+
+                    <PasswordBox Style="{StaticResource logPasBoxStyle2}" x:Name="tbxPassword"/>
+                    
+                </Grid>
 
             </StackPanel>
 
             <!--Bottom Part-->
 
-            <StackPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 10 0 0">
+            <DockPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 0">
 
                 <Button x:Name="btnRegistration"
-                        Style="{StaticResource logReverseEnterButtonStyle}" 
+                        Style="{StaticResource logButtonStyle2}" 
                         Content="Войти"
                         Width="170"
-                        HorizontalAlignment="Center" Click="btnRegistration_Click"/>
+                        DockPanel.Dock="Top"
+                        Click="btnRegistration_Click"/>
 
-                <Grid Margin="0 50 0 0">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
+                <Grid VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
+
+                    <TextBlock  HorizontalAlignment="Left">
+                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Light" Foreground="#f7ebd3" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>
 
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Regular" Foreground="#f7ebd3" Click="hlink_Click">Зайти как гость</Hyperlink>
+                    <TextBlock  HorizontalAlignment="Right">
+                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Light" Foreground="#f7ebd3" Click="hlink_Click">Зайти как гость</Hyperlink>
                     </TextBlock>
+
                 </Grid>
 
-            </StackPanel>
+            </DockPanel>
 
         </Grid>
 

@@ -46,15 +46,15 @@ namespace ClothingStore.Pages
         {
             bool IsMistakesNotExist = true;
 
-            if (!tbxLogin.Text.ValidatePhoneNumber())
+            if (!tbxNumberOrEmail.Text.ValidatePhoneNumber(true))
             {
-                tbNumberOrEmail.Visibility = Visibility.Visible;
+                brdNumberOrEmailExcep.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
             if (!tbxPassword.Password.ValidatePassword())
             {
-                tbPassword.Visibility = Visibility.Visible;
+                brdPasswordExcep.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
 
             }
@@ -64,8 +64,20 @@ namespace ClothingStore.Pages
 
         private void ClearAllValidationMarks()
         {
-            tbNumberOrEmail.Visibility = Visibility.Hidden;
-            tbPassword.Visibility = Visibility.Hidden;
+            brdNumberOrEmailExcep.Visibility = Visibility.Hidden;
+            brdPasswordExcep.Visibility = Visibility.Hidden;
+        }
+
+        private void tbxLogin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbxNumberOrEmail.Text.ValidatePhoneNumber(false))
+            {
+                brdNumberOrEmailExcep.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                brdNumberOrEmailExcep.Visibility = Visibility.Visible;
+            }
         }
     }
 }

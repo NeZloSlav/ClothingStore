@@ -10,15 +10,22 @@ namespace ClothingStore.ClassHelper
     public static class StringExtensions
     {
         /// <param name="phone"></param>
+        /// <param name="IsRequired"></param>
         /// <returns></returns>
-        public static bool ValidatePhoneNumber(this string phone)
+        public static bool ValidatePhoneNumber(this string phone, bool IsRequired)
         {
-            if (string.IsNullOrEmpty(phone))
+            if (string.IsNullOrEmpty(phone) & !IsRequired)
+                return true;
+
+            if (string.IsNullOrEmpty(phone) & IsRequired)
+                return false;
+
+            if (!phone.StartsWith("+7") & !phone.StartsWith("8") & !phone.StartsWith("7"))
                 return false;
 
             var cleaned = phone.RemoveNonNumeric();
 
-            if (cleaned.StartsWith("7") || cleaned.StartsWith("8"))
+            if (IsRequired)
             {
                 if (cleaned.Length == 11)
                     return true;
@@ -27,9 +34,17 @@ namespace ClothingStore.ClassHelper
             }
             else
             {
-                return false;
+                if (cleaned.Length == 0)
+                    return false;
+                else if (cleaned.Length > 0 & cleaned.Length < 11)
+                    return false;
+
+                else if (cleaned.Length == 11)
+                    return true;
+                else
+                    return false;
+
             }
-           
 
         }
 
@@ -66,7 +81,7 @@ namespace ClothingStore.ClassHelper
                 }
             }
 
-            
+
 
         }
 

@@ -51,38 +51,38 @@
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <TextBlock Text="Номер телефона" Style="{StaticResource logTextBlockStyle}" Margin="5 20 0 3"/>
-                <TextBox Style="{StaticResource logTextBoxStyle}" x:Name="tbxPhone"/>
+                <TextBlock Text="Номер телефона" Style="{StaticResource logTextBlockStyle1}" Margin="5 20 0 3"/>
+                <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxPhone"/>
 
-                <TextBlock Text="Почта" Style="{StaticResource logTextBlockStyle}"/>
-                <TextBox Style="{StaticResource logTextBoxStyle}" x:Name="tbxEmail" />
+                <TextBlock Text="Почта" Style="{StaticResource logTextBlockStyle1}"/>
+                <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxEmail" />
 
                 <Grid HorizontalAlignment="Stretch">
                     <StackPanel HorizontalAlignment="Left">
-                        <TextBlock Text="Фамилия" Style="{StaticResource logTextBlockStyle}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle}" Width="120" x:Name="tbxSurname"/>
+                        <TextBlock Text="Фамилия" Style="{StaticResource logTextBlockStyle1}"/>
+                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxSurname"/>
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Right">
-                        <TextBlock Text="Имя" Style="{StaticResource logTextBlockStyle}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle}" Width="120" x:Name="tbxName"/>
+                        <TextBlock Text="Имя" Style="{StaticResource logTextBlockStyle1}"/>
+                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxName"/>
                     </StackPanel>
                 </Grid>
 
                 <Grid HorizontalAlignment="Stretch">
                     <StackPanel HorizontalAlignment="Left">
-                        <TextBlock Text="Отчество" Style="{StaticResource logTextBlockStyle}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle}" Width="120" x:Name="tbxPatronymic"/>
+                        <TextBlock Text="Отчество" Style="{StaticResource logTextBlockStyle1}"/>
+                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxPatronymic"/>
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Right">
-                        <TextBlock Text="Д/р" Style="{StaticResource logTextBlockStyle}"/>
+                        <TextBlock Text="Д/р" Style="{StaticResource logTextBlockStyle1}"/>
                         <DatePicker Style="{DynamicResource DatePickerStyle1}" Width="120"/>
                     </StackPanel>
                 </Grid>
 
                 <StackPanel HorizontalAlignment="Stretch">
-                    <TextBlock Text="Пол" Style="{StaticResource logTextBlockStyle}"/>
+                    <TextBlock Text="Пол" Style="{StaticResource logTextBlockStyle1}"/>
 
                     <StackPanel Orientation="Horizontal" >
                         <ToggleButton x:Name="tglbtnMale" Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской" Checked="tglbtn_Checked"/>
@@ -90,11 +90,11 @@
                     </StackPanel>
                 </StackPanel>
 
-                <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle}"/>
-                <PasswordBox Style="{StaticResource logPasswordBoxStyle}" x:Name="tbxPassword"/>
+                <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle1}"/>
+                <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="tbxPassword"/>
 
-                <TextBlock Text="Повторите пароль" Style="{StaticResource logTextBlockStyle}"/>
-                <PasswordBox Style="{StaticResource logPasswordBoxStyle}" x:Name="tbxRePassword"/>
+                <TextBlock Text="Повторите пароль" Style="{StaticResource logTextBlockStyle1}"/>
+                <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="tbxRePassword"/>
 
             </StackPanel>
 
@@ -104,12 +104,12 @@
 
                 <Button x:Name="btnRegistration"
                         Content="Сохранить"
-                        Style="{StaticResource logEnterButtonStyle}"
+                        Style="{StaticResource logButtonStyle1}"
                         Width="125"
                         HorizontalAlignment="Right"/>
 
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Hyperlink Foreground="#823919" FontSize="18" FontWeight="Regular" Click="Hyperlink_Click">Уже есть аккаунт?</Hyperlink>
+                            <Hyperlink Foreground="{StaticResource Color4}" FontSize="18" FontWeight="Light" Click="Hyperlink_Click">Уже есть аккаунт?</Hyperlink>
                 </TextBlock>
 
             </Grid>
