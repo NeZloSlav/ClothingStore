@@ -42,71 +42,153 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-
 
             <!--User Form-->
 
             <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <TextBlock Text="Номер телефона" Style="{StaticResource logTextBlockStyle1}" Margin="5 20 0 3"/>
-                <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxPhone"/>
+                <TextBlock Text="Номер телефона*" Style="{StaticResource logTextBlockStyle1}" Margin="40 5 0 3"/>
 
-                <TextBlock Text="Почта" Style="{StaticResource logTextBlockStyle1}"/>
-                <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxEmail" />
+                <Grid Width="340">
 
+                    <Border x:Name="brdPhoneExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                    </Border>
+
+                    <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxPhone" LostFocus="tbxPhone_LostFocus"/>
+
+                </Grid>
+                
+
+                <TextBlock Text="Почта*" Style="{StaticResource logTextBlockStyle1}"/>
+
+                <Grid Width="340">
+
+                    <Border x:Name="brdEmailExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                    </Border>
+
+                    <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxEmail" LostFocus="tbxEmail_LostFocus"/>
+
+                </Grid>
+                
+                
                 <Grid HorizontalAlignment="Stretch">
+                    
                     <StackPanel HorizontalAlignment="Left">
-                        <TextBlock Text="Фамилия" Style="{StaticResource logTextBlockStyle1}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxSurname"/>
+
+                        <TextBlock Text="Фамилия*" Style="{StaticResource logTextBlockStyle1}"/>
+
+                        <Grid Width="185">
+
+                            <Border x:Name="brdSurnameExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                                <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                            </Border>
+
+                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxSurname" LostFocus="tbxSurname_LostFocus"/>
+
+                        </Grid>
+                        
                     </StackPanel>
+                    
 
                     <StackPanel HorizontalAlignment="Right">
-                        <TextBlock Text="Имя" Style="{StaticResource logTextBlockStyle1}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxName"/>
+
+                        <TextBlock Text="Имя*" Style="{StaticResource logTextBlockStyle1}"/>
+
+                        <Grid Width="185">
+
+                            <Border x:Name="brdNameExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="0 0 5 0" HorizontalAlignment="Right">
+                                <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                            </Border>
+
+                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxName" LostFocus="tbxName_LostFocus"/>
+
+                        </Grid>
+                        
                     </StackPanel>
                 </Grid>
+                
 
                 <Grid HorizontalAlignment="Stretch">
                     <StackPanel HorizontalAlignment="Left">
+
                         <TextBlock Text="Отчество" Style="{StaticResource logTextBlockStyle1}"/>
-                        <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxPatronymic"/>
+
+                        <Grid Width="185">
+
+                            <Border x:Name="brdPatronymicExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                                <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                            </Border>
+
+                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxPatronymic" LostFocus="tbxPatronymic_LostFocus"/>
+
+                        </Grid>
+                        
+                        
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Right">
+                        
                         <TextBlock Text="Д/р" Style="{StaticResource logTextBlockStyle1}"/>
-                        <DatePicker Style="{DynamicResource DatePickerStyle1}" Width="120"/>
+
+                        <Grid Width="185">
+
+                            <DatePicker Style="{DynamicResource DatePickerStyle1}" Width="120"/>
+
+                        </Grid>
+                        
                     </StackPanel>
                 </Grid>
 
                 <StackPanel HorizontalAlignment="Stretch">
+
                     <TextBlock Text="Пол" Style="{StaticResource logTextBlockStyle1}"/>
 
-                    <StackPanel Orientation="Horizontal" >
+                    <StackPanel Orientation="Horizontal" Margin="32.5 0" >
                         <ToggleButton x:Name="tglbtnMale" Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской" Checked="tglbtn_Checked"/>
-                        <ToggleButton x:Name="tglbtnFemale" Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="15 0 0 0" Checked="tglbtn_Checked"/>
+                        <ToggleButton x:Name="tglbtnFemale" Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="32.5 0 0 0" Checked="tglbtn_Checked"/>
                     </StackPanel>
+                    
                 </StackPanel>
 
-                <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle1}"/>
-                <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="tbxPassword"/>
+                <TextBlock Text="Пароль*" Style="{StaticResource logTextBlockStyle1}"/>
 
-                <TextBlock Text="Повторите пароль" Style="{StaticResource logTextBlockStyle1}"/>
-                <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="tbxRePassword"/>
+                <Grid Width="340">
+
+                    <Border x:Name="brdPasswordExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                    </Border>
+
+                    <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="pswPassword" LostFocus="pswPassword_LostFocus"/>
+
+                </Grid>
+
+                <TextBlock Text="Повторите пароль*" Style="{StaticResource logTextBlockStyle1}"/>
+
+                <Grid Width="340">
+
+                    <Border x:Name="brdRePasswordExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
+                    </Border>
+
+                    <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="pswRePassword"/>
+
+                </Grid>
 
             </StackPanel>
 
             <!--Bottom Part-->
 
-            <Grid Grid.Row="3" Margin="20 20 20 0">
+            <Grid Grid.Row="3" VerticalAlignment="Bottom">
 
                 <Button x:Name="btnRegistration"
-                        Content="Сохранить"
+                        Content="Зарегистрироваться"
                         Style="{StaticResource logButtonStyle1}"
-                        Width="125"
-                        HorizontalAlignment="Right"/>
+                        Width="167"
+                        HorizontalAlignment="Right" Click="btnRegistration_Click"/>
 
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
                             <Hyperlink Foreground="{StaticResource Color4}" FontSize="18" FontWeight="Light" Click="Hyperlink_Click">Уже есть аккаунт?</Hyperlink>

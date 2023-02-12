@@ -73,21 +73,20 @@
 
                 <Grid Width="340">
                     
-                    <Border x:Name="brdNumberOrEmailExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
-                        <TextBlock Text="×" Style="{StaticResource logTextBlockStyle2}" FontSize="23" Margin="0 -5 0 0"/>
+                    <Border x:Name="brdPhoneOrEmailExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle1}"/>
                     </Border>
 
-                    <TextBox x:Name="tbxNumberOrEmail" Style="{StaticResource logTextBoxStyle2}" LostFocus="tbxLogin_LostFocus"/>
+                    <TextBox x:Name="tbxPhoneOrEmail" Style="{StaticResource logTextBoxStyle2}" LostFocus="tbxPhoneOrEmail_LostFocus"/>
                     
                 </Grid>
-
 
                 <TextBlock Text="Пароль" Style="{StaticResource logTextBlockStyle2}" Margin="35 40 5 5"/>
 
                 <Grid Width="340">
 
                     <Border x:Name="brdPasswordExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
-                        <TextBlock Text="×" Style="{StaticResource logTextBlockStyle2}" FontSize="23" Margin="0 -5 0 0"/>
+                        <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle1}"/>
                     </Border>
 
                     <PasswordBox Style="{StaticResource logPasBoxStyle2}" x:Name="tbxPassword"/>
