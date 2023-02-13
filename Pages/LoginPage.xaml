@@ -109,11 +109,11 @@
                 <Grid VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
 
                     <TextBlock  HorizontalAlignment="Left">
-                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Light" Foreground="#f7ebd3" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
+                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>
 
                     <TextBlock  HorizontalAlignment="Right">
-                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Light" Foreground="#f7ebd3" Click="hlink_Click">Зайти как гость</Hyperlink>
+                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="hlink_Click">Зайти как гость</Hyperlink>
                     </TextBlock>
 
                 </Grid>

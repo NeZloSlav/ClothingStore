@@ -11,13 +11,15 @@
         <SolidColorBrush x:Key="Color4" Color="#823919"/>
         <SolidColorBrush x:Key="Color5" Color="#521908"/>
         <SolidColorBrush x:Key="Color6" Color="#B2393E"/>
+        <SolidColorBrush x:Key="Vine" Color="#6e0323"/>
+        <SolidColorBrush x:Key="BoneGray" Color="#C9D6DF"/>
 
         <!--#region Login/Registration Window Styles-->
         
         <!--#region Login Text Block Styles-->
 
         <Style x:Key="logTextBlockStyle1" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#823919" />
+            <Setter Property="Foreground" Value="{StaticResource Color4}" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="FontWeight" Value="Light" />
             <Setter Property="Margin" Value="40 15 0 3" />
@@ -25,7 +27,7 @@
         </Style>
 
         <Style x:Key="logTextBlockStyle2" TargetType="TextBlock" BasedOn="{StaticResource logTextBlockStyle1}">
-            <Setter Property="Foreground" Value="#f7ebd3" />
+            <Setter Property="Foreground" Value="{StaticResource Color1}" />
             <Setter Property="Margin" Value="35 0 0 0" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
@@ -45,8 +47,8 @@
         <!--#region Login Text Box Style-->
         <Style x:Key="logTextBoxStyle1" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="#521908"/>
-            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color5}"/>
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Width" Value="275" />
@@ -66,10 +68,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -78,9 +80,9 @@
         </Style>
 
         <Style x:Key="logTextBoxStyle2" TargetType="TextBox" BasedOn="{StaticResource logTextBoxStyle1}">
-            <Setter Property="Background" Value="#f7ebd3"/>
-            <Setter Property="BorderBrush" Value="#f7ebd3"/>
-            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="Background" Value="{StaticResource Color1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color1}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color5}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -92,10 +94,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" Value="#823919"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource Color4}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#f7ebd3"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color1}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -110,8 +112,8 @@
         <Style x:Key="logPasBoxStyle1" TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="✦"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="#521908"/>
-            <Setter Property="Foreground" Value="#823919"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color4}"/>
             <Setter Property="Padding" Value="5 3" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Width" Value="275" />
@@ -130,10 +132,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#B2393E"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -142,9 +144,9 @@
         </Style>
 
         <Style x:Key="logPasBoxStyle2" TargetType="PasswordBox" BasedOn="{StaticResource logPasBoxStyle1}">
-            <Setter Property="Background" Value="#f7ebd3"/>
-            <Setter Property="BorderBrush" Value="#f7ebd3"/>
-            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="Background" Value="{StaticResource Color1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color1}"/>
+            <Setter Property="Foreground" Value="{StaticResource Color5}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -156,10 +158,10 @@
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#823919"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color4}"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="#f7ebd3"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color1}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -244,7 +246,7 @@
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Color3}"/>
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color1}"/>
-                                <Setter Property="Foreground" Value="#f7ebd3" />
+                                <Setter Property="Foreground" Value="{StaticResource Color1}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -277,11 +279,11 @@
 
         <!--#region Date Picker Style-->
         <Style x:Key="DatePickerStyle1" TargetType="{x:Type DatePicker}">
-            <Setter Property="Foreground" Value="#823919"/>
+            <Setter Property="Foreground" Value="{StaticResource Color4}"/>
             <Setter Property="IsTodayHighlighted" Value="True"/>
             <Setter Property="SelectedDateFormat" Value="Short"/>
-            <Setter Property="Background" Value="#f7ebd3"/>
-            <Setter Property="BorderBrush" Value="#521908" />
+            <Setter Property="Background" Value="{StaticResource Color1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Width" Value="120" />
             <Setter Property="Height" Value="32" />
@@ -444,9 +446,9 @@
         <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource ToggleFocusVisual}"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="#521908"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Color5}"/>
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="#521908"/>
+            <Setter Property="Foreground" Value="{StaticResource Color5}"/>
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="Light" />
             <Setter Property="Width" Value="80" />
@@ -464,15 +466,15 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Color6}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="#521908"/>
-                                <Setter Property="Foreground" Value="#f7ebd3" />
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Color5}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Color1}" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Background" TargetName="border" Value="#521908"/>
-                                <Setter Property="Foreground" Value="#f7ebd3" />
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Color5}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Color1}" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
