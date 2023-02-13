@@ -44,6 +44,7 @@ namespace ClothingStore.Pages
                 if (IsPhone)
                 {
                     MessageBox.Show("Всё супер, введён телефон");
+
                 }
                 else
                 {
@@ -61,7 +62,7 @@ namespace ClothingStore.Pages
                 if (!tbxPhoneOrEmail.Text.ValidateEmailAddress(true))
                 {
                     brdPhoneOrEmailExcep.Visibility = Visibility.Visible;
-                    IsMistakesNotExist = false;
+                    IsMistakesNotExist = false; 
                 }
                 else
                 {
