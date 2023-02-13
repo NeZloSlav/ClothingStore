@@ -8,4 +8,5 @@
 
 <h2>Обозреватель решений</h2>
 
-![z9nVzo9uP5I](https://user-images.githubusercontent.com/107403672/216831333-3fb78895-abc7-4b2a-8cbc-f0214aeab0fd.jpg)
+![image](https://user-images.githubusercontent.com/107403672/218387351-e33483ee-7f55-481c-a786-a2dd7a632bb5.png)
+
