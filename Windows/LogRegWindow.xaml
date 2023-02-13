@@ -15,7 +15,7 @@
         Height="600" 
         Width="800">
     <Grid>
-        <Frame x:Name="frmLogReg" NavigationUIVisibility="Hidden" Panel.ZIndex="0" />
+        <Frame x:Name="frmLogReg" NavigationUIVisibility="Hidden" Panel.ZIndex="0" KeyboardNavigation.IsTabStop="False"/>
 
         <Button x:Name="btnClose" 
                 Content="×"
