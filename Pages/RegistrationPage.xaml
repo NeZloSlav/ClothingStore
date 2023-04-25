@@ -19,6 +19,9 @@
         <!--Left Part-->
 
         <Grid>
+            
+            <!--Background Photo-->
+            
             <Image Source="/Images/StoreImage1.jpg" Stretch="UniformToFill" HorizontalAlignment="Center" Opacity="0.45"/>
 
             <!--Title-->
@@ -53,11 +56,11 @@
 
                 <Grid Width="340">
 
-                    <Border x:Name="brdPhoneExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                    <Border x:Name="BorderPhoneException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                     </Border>
 
-                    <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxPhone" LostFocus="tbxPhone_LostFocus"/>
+                    <TextBox x:Name="TextBoxPhone" Style="{StaticResource logTextBoxStyle1}" LostFocus="TextBoxPhone_LostFocus"/>
 
                 </Grid>
                 
@@ -66,11 +69,11 @@
 
                 <Grid Width="340">
 
-                    <Border x:Name="brdEmailExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                    <Border x:Name="BorderEmailException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                     </Border>
 
-                    <TextBox Style="{StaticResource logTextBoxStyle1}" x:Name="tbxEmail" LostFocus="tbxEmail_LostFocus"/>
+                    <TextBox x:Name="TextBoxEmail" Style="{StaticResource logTextBoxStyle1}" LostFocus="TextBoxEmail_LostFocus"/>
 
                 </Grid>
                 
@@ -83,11 +86,11 @@
 
                         <Grid Width="185">
 
-                            <Border x:Name="brdSurnameExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                            <Border x:Name="BorderSurnameException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                                 <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                             </Border>
 
-                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxSurname" LostFocus="tbxSurname_LostFocus"/>
+                            <TextBox x:Name="TextBoxSurname" Style="{StaticResource logTextBoxStyle1}" Width="120"  LostFocus="TextBoxSurname_LostFocus"/>
 
                         </Grid>
                         
@@ -100,11 +103,11 @@
 
                         <Grid Width="185">
 
-                            <Border x:Name="brdNameExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="0 0 5 0" HorizontalAlignment="Right">
+                            <Border x:Name="BorderNameException" Style="{StaticResource logBorderExceptionStyle2}" Margin="0 0 5 0" HorizontalAlignment="Right">
                                 <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                             </Border>
 
-                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxName" LostFocus="tbxName_LostFocus"/>
+                            <TextBox x:Name="TextBoxName" Style="{StaticResource logTextBoxStyle1}" Width="120"  LostFocus="TextBoxName_LostFocus"/>
 
                         </Grid>
                         
@@ -119,11 +122,11 @@
 
                         <Grid Width="185">
 
-                            <Border x:Name="brdPatronymicExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                            <Border x:Name="BorderPatronymicException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                                 <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                             </Border>
 
-                            <TextBox Style="{StaticResource logTextBoxStyle1}" Width="120" x:Name="tbxPatronymic" LostFocus="tbxPatronymic_LostFocus"/>
+                            <TextBox x:Name="TextBoxPatronymic" Style="{StaticResource logTextBoxStyle1}" Width="120" LostFocus="TextBoxPatronymic_LostFocus"/>
 
                         </Grid>
                         
@@ -136,7 +139,7 @@
 
                         <Grid Width="185">
 
-                            <DatePicker Style="{DynamicResource DatePickerStyle1}" Width="120"/>
+                            <DatePicker x:Name="DataPickerBirthday" Style="{DynamicResource DatePickerStyle1}" Width="120"/>
 
                         </Grid>
                         
@@ -148,8 +151,8 @@
                     <TextBlock Text="Пол" Style="{StaticResource logTextBlockStyle1}"/>
 
                     <StackPanel Orientation="Horizontal" Margin="32.5 0" >
-                        <ToggleButton x:Name="tglbtnMale" Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской" Checked="tglbtn_Checked"/>
-                        <ToggleButton x:Name="tglbtnFemale" Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="32.5 0 0 0" Checked="tglbtn_Checked"/>
+                        <ToggleButton x:Name="ToggleButtonMale" Style="{DynamicResource ToggleButtonStyle1}" Content="Мужской" Checked="ToggleButton_Checked"/>
+                        <ToggleButton x:Name="ToggleButtonFemale" Style="{DynamicResource ToggleButtonStyle1}" Content="Женский" Margin="32.5 0 0 0" Checked="ToggleButton_Checked"/>
                     </StackPanel>
                     
                 </StackPanel>
@@ -158,11 +161,11 @@
 
                 <Grid Width="340">
 
-                    <Border x:Name="brdPasswordExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                    <Border x:Name="BorderPasswordException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                     </Border>
 
-                    <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="pswPassword" LostFocus="pswPassword_LostFocus"/>
+                    <PasswordBox x:Name="PasswordBoxPassword" Style="{StaticResource logPasBoxStyle1}" LostFocus="PasswordBoxPassword_LostFocus"/>
 
                 </Grid>
 
@@ -170,11 +173,11 @@
 
                 <Grid Width="340">
 
-                    <Border x:Name="brdRePasswordExcep" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
+                    <Border x:Name="BorderRePasswordException" Style="{StaticResource logBorderExceptionStyle2}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle2}"/>
                     </Border>
 
-                    <PasswordBox Style="{StaticResource logPasBoxStyle1}" x:Name="pswRePassword"/>
+                    <PasswordBox x:Name="PasswordBoxRePassword" Style="{StaticResource logPasBoxStyle1}"/>
 
                 </Grid>
 
@@ -184,14 +187,13 @@
 
             <Grid Grid.Row="3" VerticalAlignment="Bottom">
 
-                <Button x:Name="btnRegistration"
-                        Content="Зарегистрироваться"
-                        Style="{StaticResource logButtonStyle1}"
-                        Width="167"
-                        HorizontalAlignment="Right" Click="btnRegistration_Click"/>
+                <Button x:Name="ButtonRegistration" Content="Зарегистрироваться" Style="{StaticResource logButtonStyle1}"
+                        Width="167" HorizontalAlignment="Right" Click="ButtonRegistration_Click"/>
 
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Hyperlink Foreground="{StaticResource Color4}" FontSize="18" FontWeight="Light" Click="Hyperlink_Click">Уже есть аккаунт?</Hyperlink>
+                            <Hyperlink x:Name="HyperlinkSignIn" Foreground="{StaticResource Color4}" FontSize="18" FontWeight="Light" Click="HyperlinkAlreadySignIn_Click">
+                                Уже есть аккаунт?
+                            </Hyperlink>
                 </TextBlock>
 
             </Grid>

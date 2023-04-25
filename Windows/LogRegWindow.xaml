@@ -12,7 +12,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Background="Transparent"
         AllowsTransparency="True"
-        Height="600" 
+        Height="600"
         Width="800">
     <Grid>
         <Frame x:Name="frmLogReg" NavigationUIVisibility="Hidden" Panel.ZIndex="0" KeyboardNavigation.IsTabStop="False"/>

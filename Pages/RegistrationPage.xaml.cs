@@ -15,103 +15,106 @@ namespace ClothingStore.Pages
             InitializeComponent();
         }
 
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        private void HyperlinkAlreadySignIn_Click(object sender, RoutedEventArgs e)
         {
             NavigateClass.logRegFrame.Navigate(new LoginPage());
         }
 
-        private void tglbtn_Checked(object sender, RoutedEventArgs e)
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            ToggleButton tglButton = (ToggleButton)sender;
+            ToggleButton toggleButton = (ToggleButton)sender;
 
-            if (tglButton.Name == "tglbtnMale")
+            if (toggleButton.Name == "ToggleButtonMale")
             {
-                tglbtnFemale.IsChecked = false;
+                ToggleButtonFemale.IsChecked = false;
             }
             else
             {
-                tglbtnMale.IsChecked = false;
+                ToggleButtonMale.IsChecked = false;
             }
         }
 
-        private void tbxPhone_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxPhone_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxPhone.Text.ValidatePhoneNumber(false))
+            if (TextBoxPhone.Text.ValidatePhoneNumber(false))
             {
-                brdPhoneExcep.Visibility = Visibility.Hidden;
+                BorderPhoneException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdPhoneExcep.Visibility = Visibility.Visible;
+                BorderPhoneException.Visibility = Visibility.Visible;
             }
         }
 
-        private void tbxEmail_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxEmail_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxEmail.Text.ValidateEmailAddress(false))
+            if (TextBoxEmail.Text.ValidateEmailAddress(false))
             {
-                brdEmailExcep.Visibility = Visibility.Hidden;
+                BorderEmailException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdEmailExcep.Visibility = Visibility.Visible;
+                BorderEmailException.Visibility = Visibility.Visible;
             }
         }
 
-        private void tbxSurname_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxSurname_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxSurname.Text.ValidateTextField(false))
+            if (TextBoxSurname.Text.ValidateTextField(false))
             {
-                brdSurnameExcep.Visibility = Visibility.Hidden;
+                BorderSurnameException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdSurnameExcep.Visibility = Visibility.Visible;
+                BorderSurnameException.Visibility = Visibility.Visible;
             }
         }
 
-        private void tbxName_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxName_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxName.Text.ValidateTextField(false))
+            if (TextBoxName.Text.ValidateTextField(false))
             {
-                brdNameExcep.Visibility = Visibility.Hidden;
+                BorderNameException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdNameExcep.Visibility = Visibility.Visible;
+                BorderNameException.Visibility = Visibility.Visible;
             }
         }
 
-        private void tbxPatronymic_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxPatronymic_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxPatronymic.Text.ValidateTextField(false))
+            if (TextBoxPatronymic.Text.ValidateTextField(false))
             {
-                brdPatronymicExcep.Visibility = Visibility.Hidden;
+                BorderPatronymicException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdPatronymicExcep.Visibility = Visibility.Visible;
+                BorderPatronymicException.Visibility = Visibility.Visible;
             }
         }
 
-        private void pswPassword_LostFocus(object sender, RoutedEventArgs e)
+        private void PasswordBoxPassword_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (pswPassword.Password.ValidatePassword(false))
+            if (PasswordBoxPassword.Password.ValidatePassword(false))
             {
-                brdPasswordExcep.Visibility = Visibility.Hidden;
+                BorderPasswordException.Visibility = Visibility.Hidden;
             }
             else
             {
-                brdPasswordExcep.Visibility = Visibility.Visible;
+                BorderPasswordException.Visibility = Visibility.Visible;
             }
         }
 
-        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             if (FormsValidation())
             {
                 MessageBox.Show("Всё просто замечательно");
                 ClearAllValidationMarks();
+                MainWindow mainWindow = new MainWindow();
+                NavigateClass.currentWindow.Close();
+                mainWindow.Show();
             }
         }
 
@@ -119,40 +122,40 @@ namespace ClothingStore.Pages
         {
             bool IsMistakesNotExist = true;
 
-            if (!tbxPhone.Text.ValidatePhoneNumber(true))
+            if (!TextBoxPhone.Text.ValidatePhoneNumber(true))
             {
-                brdPhoneExcep.Visibility = Visibility.Visible;
+                BorderPhoneException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
-            if (!tbxEmail.Text.ValidateEmailAddress(true))
+            if (!TextBoxEmail.Text.ValidateEmailAddress(true))
             {
-                brdEmailExcep.Visibility = Visibility.Visible;
+                BorderEmailException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
-            if (!tbxSurname.Text.ValidateTextField(true))
+            if (!TextBoxSurname.Text.ValidateTextField(true))
             {
-                brdSurnameExcep.Visibility = Visibility.Visible;
+                BorderSurnameException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
-            if (!tbxName.Text.ValidateTextField(true))
+            if (!TextBoxName.Text.ValidateTextField(true))
             {
-                brdNameExcep.Visibility = Visibility.Visible;
+                BorderNameException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
-            if (!pswPassword.Password.ValidatePassword(true))
+            if (!PasswordBoxPassword.Password.ValidatePassword(true))
             {
-                brdPasswordExcep.Visibility = Visibility.Visible;
+                BorderPasswordException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
-            if (pswRePassword.Password != pswPassword.Password)
+            if (PasswordBoxRePassword.Password != PasswordBoxPassword.Password)
             {
-                brdPasswordExcep.Visibility = Visibility.Visible;
-                brdRePasswordExcep.Visibility = Visibility.Visible;
+                BorderPasswordException.Visibility = Visibility.Visible;
+                BorderRePasswordException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
             }
 
@@ -162,13 +165,13 @@ namespace ClothingStore.Pages
 
         private void ClearAllValidationMarks()
         {
-            brdEmailExcep.Visibility = Visibility.Hidden;
-            brdNameExcep.Visibility = Visibility.Hidden;
-            brdPasswordExcep.Visibility = Visibility.Hidden;
-            brdPatronymicExcep.Visibility = Visibility.Hidden;
-            brdPhoneExcep.Visibility = Visibility.Hidden;
-            brdRePasswordExcep.Visibility = Visibility.Hidden;
-            brdSurnameExcep.Visibility = Visibility.Hidden;
+            BorderEmailException.Visibility = Visibility.Hidden;
+            BorderNameException.Visibility = Visibility.Hidden;
+            BorderPasswordException.Visibility = Visibility.Hidden;
+            BorderPatronymicException.Visibility = Visibility.Hidden;
+            BorderPhoneException.Visibility = Visibility.Hidden;
+            BorderRePasswordException.Visibility = Visibility.Hidden;
+            BorderSurnameException.Visibility = Visibility.Hidden;
         }
     }
 }
