@@ -18,11 +18,11 @@ namespace ClothingStore.Pages
             InitializeComponent();
         }
         
-        private void hlink_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             Hyperlink hyperlink = (Hyperlink)sender;
 
-            if (hyperlink.Name == "hlinkNoAccount")
+            if (hyperlink.Name == "HyperlinkNoAccount")
             {
                 NavigateClass.logRegFrame.Navigate(new RegistrationPage());
             }
@@ -34,8 +34,7 @@ namespace ClothingStore.Pages
             }
         }
 
-        
-        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             if (FormsValidation())
             {
@@ -57,11 +56,11 @@ namespace ClothingStore.Pages
         {
             bool IsMistakesNotExist = true;
 
-            if (tbxPhoneOrEmail.Text.Contains('@'))
+            if (TextBoxPhoneOrEmail.Text.Contains('@'))
             {
-                if (!tbxPhoneOrEmail.Text.ValidateEmailAddress(true))
+                if (!TextBoxPhoneOrEmail.Text.ValidateEmailAddress(true))
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Visible;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Visible;
                     IsMistakesNotExist = false; 
                 }
                 else
@@ -71,9 +70,9 @@ namespace ClothingStore.Pages
             }
             else
             {
-                if (!tbxPhoneOrEmail.Text.ValidatePhoneNumber(true))
+                if (!TextBoxPhoneOrEmail.Text.ValidatePhoneNumber(true))
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Visible;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Visible;
                     IsMistakesNotExist = false;
                 }
                 else
@@ -82,9 +81,9 @@ namespace ClothingStore.Pages
                 }
             }
 
-            if (!tbxPassword.Password.ValidatePassword(true))
+            if (!TextBoxPassword.Password.ValidatePassword(true))
             {
-                brdPasswordExcep.Visibility = Visibility.Visible;
+                BorderPasswordException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;
 
             }
@@ -94,32 +93,32 @@ namespace ClothingStore.Pages
 
         private void ClearAllValidationMarks()
         {
-            brdPhoneOrEmailExcep.Visibility = Visibility.Hidden;
-            brdPasswordExcep.Visibility = Visibility.Hidden;
+            BorderPhoneOrEmailException.Visibility = Visibility.Hidden;
+            BorderPasswordException.Visibility = Visibility.Hidden;
         }
 
-        private void tbxPhoneOrEmail_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxPhoneOrEmail_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbxPhoneOrEmail.Text.Contains('@'))
+            if (TextBoxPhoneOrEmail.Text.Contains('@'))
             {
-                if (tbxPhoneOrEmail.Text.ValidateEmailAddress(false))
+                if (TextBoxPhoneOrEmail.Text.ValidateEmailAddress(false))
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Hidden;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Visible;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Visible;
                 }
             }
             else
             {
-                if (tbxPhoneOrEmail.Text.ValidatePhoneNumber(false))
+                if (TextBoxPhoneOrEmail.Text.ValidatePhoneNumber(false))
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Hidden;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    brdPhoneOrEmailExcep.Visibility = Visibility.Visible;
+                    BorderPhoneOrEmailException.Visibility = Visibility.Visible;
                 }
             }
 

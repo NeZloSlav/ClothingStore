@@ -19,6 +19,8 @@
         <!--Left Part-->
 
         <Grid>
+            
+            <!--Background Image-->
 
             <Image Source="/Images/StoreImage3.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
 
@@ -27,6 +29,8 @@
                     <SolidColorBrush Color="#f7ebd3" Opacity="0.7"/>
                 </Border.Background>
             </Border>
+            
+            <!--Title-->
 
             <TextBlock Style="{StaticResource logTextBlockStyle1}" VerticalAlignment="Bottom"  Margin="20 20 -300 0" Width="550">
                 <Run FontSize="70">Clothing Store</Run>
@@ -73,11 +77,11 @@
 
                 <Grid Width="340">
                     
-                    <Border x:Name="brdPhoneOrEmailExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
+                    <Border x:Name="BorderPhoneOrEmailException" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle1}"/>
                     </Border>
 
-                    <TextBox x:Name="tbxPhoneOrEmail" Style="{StaticResource logTextBoxStyle2}" LostFocus="tbxPhoneOrEmail_LostFocus"/>
+                    <TextBox x:Name="TextBoxPhoneOrEmail" Style="{StaticResource logTextBoxStyle2}" LostFocus="TextBoxPhoneOrEmail_LostFocus"/>
                     
                 </Grid>
 
@@ -85,11 +89,11 @@
 
                 <Grid Width="340">
 
-                    <Border x:Name="brdPasswordExcep" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
+                    <Border x:Name="BorderPasswordException" Style="{StaticResource logBorderExceptionStyle1}" Margin="5 0 0 0">
                         <TextBlock Text="×" Style="{StaticResource logTextBlockExceptionStyle1}"/>
                     </Border>
 
-                    <PasswordBox Style="{StaticResource logPasBoxStyle2}" x:Name="tbxPassword"/>
+                    <PasswordBox x:Name="TextBoxPassword" Style="{StaticResource logPasBoxStyle2}"/>
                     
                 </Grid>
 
@@ -99,21 +103,21 @@
 
             <DockPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 0 0 0">
 
-                <Button x:Name="btnRegistration"
+                <Button x:Name="ButtonRegistration"
                         Style="{StaticResource logButtonStyle2}" 
                         Content="Войти"
                         Width="170"
                         DockPanel.Dock="Top"
-                        Click="btnRegistration_Click"/>
+                        Click="ButtonRegistration_Click"/>
 
                 <Grid VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
 
                     <TextBlock  HorizontalAlignment="Left">
-                            <Hyperlink x:Name="hlinkNoAccount" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="hlink_Click">У вас нет аккаунта?</Hyperlink>
+                            <Hyperlink x:Name="HyperlinkNoAccount" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="Hyperlink_Click">У вас нет аккаунта?</Hyperlink>
                     </TextBlock>
 
                     <TextBlock  HorizontalAlignment="Right">
-                            <Hyperlink x:Name="hlinkEnterAsGuest" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="hlink_Click">Зайти как гость</Hyperlink>
+                            <Hyperlink x:Name="HyperlinkEnterAsGuest" FontSize="18" FontWeight="Light" Foreground="{StaticResource Color1}" Click="Hyperlink_Click">Зайти как гость</Hyperlink>
                     </TextBlock>
 
                 </Grid>

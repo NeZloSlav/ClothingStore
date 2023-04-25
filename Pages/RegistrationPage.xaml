@@ -112,9 +112,8 @@
                         </Grid>
                         
                     </StackPanel>
-                </Grid>
+                </Grid> 
                 
-
                 <Grid HorizontalAlignment="Stretch">
                     <StackPanel HorizontalAlignment="Left">
 
