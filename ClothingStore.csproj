@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassHelper\CurrentUser.cs" />
     <Compile Include="ClassHelper\EFClass.cs" />
     <Compile Include="ClassHelper\StringExtensions.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
@@ -81,6 +82,11 @@
     <Compile Include="Pages\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestModel\Customer.cs" />
+    <Compile Include="TestModel\Employee.cs" />
+    <Compile Include="TestModel\Gender.cs" />
+    <Compile Include="TestService\CustomerService.cs" />
+    <Compile Include="TestService\EmployeeService.cs" />
     <Compile Include="Windows\LogRegWindow.xaml.cs">
       <DependentUpon>LogRegWindow.xaml</DependentUpon>
     </Compile>

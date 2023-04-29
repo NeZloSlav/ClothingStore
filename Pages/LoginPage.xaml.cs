@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.ComponentModel.Design;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ClothingStore.ClassHelper;
+using ClothingStore.TestService;
 
 namespace ClothingStore.Pages
 {
@@ -34,7 +36,7 @@ namespace ClothingStore.Pages
             }
         }
 
-        private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
+        private void ButtonEnter_Click(object sender, RoutedEventArgs e)
         {
             if (FormsValidation())
             {
@@ -44,11 +46,49 @@ namespace ClothingStore.Pages
                 {
                     MessageBox.Show("Всё супер, введён телефон");
 
+                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == );
+                    if (employee is null)
+                    {
+                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                        if (customer is null)
+                        {
+                            MessageBox.Show("Такого пользователя не существует");
+                            return;
+                        }
+
+                        CurrentUser.currentCustomer = customer;
+                    }
+                    else
+                    {
+                        CurrentUser.currentEmployee = employee;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Всё супер, введёна почта");
+
+                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                    if (employee is null)
+                    {
+                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                        if (customer is null)
+                        {
+                            MessageBox.Show("Такого пользователя не существует");
+                            return;
+                        }
+                          
+                        CurrentUser.currentCustomer = customer;
+                    }
+                    else
+                    {
+                        CurrentUser.currentEmployee = employee;
+                    }
                 }
+
+                MainWindow mainWindow = new MainWindow();
+                NavigateClass.currentWindow.Close();
+                NavigateClass.currentWindow = mainWindow; ;
+                mainWindow.Show();
             }
         }
 
