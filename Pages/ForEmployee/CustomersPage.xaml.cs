@@ -13,23 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClothingStore
+namespace ClothingStore.Pages.ForEmployee
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для CustomersPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CustomersPage : Page
     {
-        public MainWindow()
+        public CustomersPage()
         {
             InitializeComponent();
-
-            ClassHelper.NavigateClass.navigFrame = FrameContent;
-
-            FrameContent.Navigate(new ClothingStore.Pages.ForEmployee.CustomersPage());
-
-            FrameMenu.Navigate(new ClothingStore.Pages.ForEmployee.Menu());
-
+            ListViewCustomers.ItemsSource = ClothingStore.TestService.CustomerService.Customers;
         }
     }
 }

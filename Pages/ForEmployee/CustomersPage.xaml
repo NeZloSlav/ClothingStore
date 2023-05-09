@@ -1,0 +1,86 @@
+﻿<Page x:Class="ClothingStore.Pages.ForEmployee.CustomersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClothingStore.Pages.ForEmployee"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1250"
+      Title="CustomersPage">
+
+    <Grid Background="White">
+        <ListView x:Name="ListViewCustomers" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--Шаблон одного элемента-->
+
+                    <Border BorderBrush="Gray" 
+                            BorderThickness="2"
+                            Width="240"
+                            Height="140"
+                            Margin="5">
+
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="60"
+                                   Height="80"
+                                   HorizontalAlignment="Left"
+                                   Margin="5">
+
+                                    <Image.Source>
+                                        <Binding Path="Image">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>C:\Users\slava\Source\Repos\NeZloSlav\ClothingStore\Res\Images\employeeIcon.png</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+
+                                <StackPanel VerticalAlignment="Bottom" Margin="0 10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Имя: "/>
+                                        <TextBlock Text="{Binding ElementName=FName}" Margin="5 0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Фамилия:"/>
+                                        <TextBlock Text="{Binding ElementName=LName}" Margin="5 0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Отчество:"/>
+                                        <TextBlock Text="{Binding ElementName=Patronymic}" Margin="5 0"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
+                            </StackPanel>
+
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Почта:"/>
+                                    <TextBlock Text="{Binding ElementName=Email}"/>
+                                </StackPanel>
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Телефон:"/>
+                                    <TextBlock Text="{Binding ElementName=Phone}"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            
+                        </StackPanel>
+
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -46,10 +46,12 @@ namespace ClothingStore.Pages
                 {
                     MessageBox.Show("Всё супер, введён телефон");
 
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == );
+                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == PasswordBoxPassword.Password);
+
                     if (employee is null)
                     {
                         var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+
                         if (customer is null)
                         {
                             MessageBox.Show("Такого пользователя не существует");
@@ -67,10 +69,12 @@ namespace ClothingStore.Pages
                 {
                     MessageBox.Show("Всё супер, введёна почта");
 
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Email == TextBoxPhoneOrEmail.Text);
+
                     if (employee is null)
                     {
-                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Email == TextBoxPhoneOrEmail.Text);
+
                         if (customer is null)
                         {
                             MessageBox.Show("Такого пользователя не существует");
@@ -121,7 +125,7 @@ namespace ClothingStore.Pages
                 }
             }
 
-            if (!TextBoxPassword.Password.ValidatePassword(true))
+            if (!PasswordBoxPassword.Password.ValidatePassword(true))
             {
                 BorderPasswordException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;

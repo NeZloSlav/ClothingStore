@@ -11,9 +11,16 @@
         Height="750"
         Width="1250">
     
-    <Grid Background ="#C8C6B1">
-        
-        <Frame x:Name="frameContent" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Frame x:Name="FrameMenu" Grid.Row="0" NavigationUIVisibility="Hidden"/>
+
+        <Frame x:Name="FrameContent" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 		
     </Grid>
 </Window>
