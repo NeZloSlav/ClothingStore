@@ -1,18 +1,23 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using ClothingStore.ClassHelper;
+using ClothingStore.Models;
 
 namespace ClothingStore.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для RegistrationPage.xaml
-    /// </summary>
     public partial class RegistrationPage : Page
     {
+        private List<string> OldValues, NewValues;
+
         public RegistrationPage()
         {
             InitializeComponent();
+
+            OldValues = new List<string>();
+            NewValues = new List<string>();
         }
 
         private void HyperlinkAlreadySignIn_Click(object sender, RoutedEventArgs e)
@@ -108,14 +113,111 @@ namespace ClothingStore.Pages
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
-            if (FormsValidation())
+            NewValues.AddRange(new string[] {TextBoxPhone.Text, TextBoxEmail.Text, TextBoxSurname.Text, TextBoxName.Text, TextBoxPatronymic.Text, PasswordBoxPassword.Password, PasswordBoxRePassword.Password});
+
+            if (CheckingForRepeat())
             {
-                MessageBox.Show("Всё просто замечательно");
-                ClearAllValidationMarks();
-                MainWindow mainWindow = new MainWindow();
-                NavigateClass.currentWindow.Close();
-                mainWindow.Show();
+                if (FormsValidation())
+                {
+                    MessageBox.Show("Всё просто замечательно");
+                    ClearAllValidationMarks();
+
+                    Registration();
+
+                    
+                }
             }
+        }
+
+        private void Registration()
+        {
+            if (!IsAlreadySignIn())
+            {
+
+                var user = new User
+                {
+                    LastName = TextBoxSurname.Text,
+                    FirstName = TextBoxName.Text,
+                    Patronymic = TextBoxPatronymic.Text,
+                    Email = TextBoxEmail.Text,
+                    PhoneNumber = TextBoxPhone.Text,
+                    Password = PasswordBoxPassword.Password,
+                    Birthday = DataPickerBirthday.SelectedDate.Value,
+                    FK_Gender_Id = GetGenderId(),
+                };
+
+                EFClass.Context.User.Add(user);
+                EFClass.Context.SaveChanges();
+
+                UserData.CurrentUser = user;
+
+                var client = new Client
+                {
+                    FK_User_Id = user.PK_User_Id
+                };
+
+                EFClass.Context.Client.Add(client);
+                EFClass.Context.SaveChanges();
+
+                UserData.CurrentClient = client;
+
+                GoToNextWindow();
+            }
+            else
+            {
+                MessageBox.Show("Пользователь с такими данными уже зарегистрирован.");
+            }
+        }
+
+        private bool IsAlreadySignIn()
+        {
+            User user = EFClass.Context.User.FirstOrDefault(u => u.Email == TextBoxEmail.Text && u.PhoneNumber == TextBoxPhone.Text);
+
+            if (user != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void GoToNextWindow()
+        {
+            MainWindow mainWindow = new MainWindow();
+            NavigateClass.currentWindow.Close();
+            NavigateClass.currentWindow = mainWindow; ;
+            mainWindow.Show();
+        }
+
+        private int GetGenderId()
+        {
+            if ((bool)ToggleButtonMale.IsChecked)
+            {
+                return 1; //равно значению в базе данных "мужской"
+            }
+            else if ((bool)ToggleButtonFemale.IsChecked)
+            {
+                return 2; //равно значению в базе данных "женский"
+            }
+            else 
+            {
+                return 3; //равно значению в базе данных "не указано"
+            }
+        }
+
+        private bool CheckingForRepeat()
+        {
+            if (OldValues.SequenceEqual(NewValues))
+            {
+                NewValues.Clear();
+                return false;
+            }
+
+            OldValues.Clear();
+            NewValues.ForEach(x => OldValues.Add(x));
+            NewValues.Clear();
+
+            return true;
         }
 
         private bool FormsValidation()

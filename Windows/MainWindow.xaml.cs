@@ -26,9 +26,9 @@ namespace ClothingStore
 
             ClassHelper.NavigateClass.navigFrame = FrameContent;
 
-            FrameContent.Navigate(new ClothingStore.Pages.ForEmployee.CustomersPage());
+            FrameContent.Navigate(new Pages.ForEmployee.CustomersPage());
 
-            FrameMenu.Navigate(new ClothingStore.Pages.ForEmployee.Menu());
+            FrameMenu.Navigate(new Pages.ForEmployee.Menu());
 
         }
     }
