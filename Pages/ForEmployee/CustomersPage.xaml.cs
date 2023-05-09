@@ -23,7 +23,7 @@ namespace ClothingStore.Pages.ForEmployee
         public CustomersPage()
         {
             InitializeComponent();
-            ListViewCustomers.ItemsSource = ClothingStore.TestService.CustomerService.Customers;
+            //ListViewCustomers.ItemsSource = ClothingStore.TestService.CustomerService.Customers;
         }
     }
 }

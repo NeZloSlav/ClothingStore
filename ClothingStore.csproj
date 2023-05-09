@@ -70,7 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ClassHelper\CurrentUser.cs" />
+    <Compile Include="ClassHelper\UserData.cs" />
     <Compile Include="ClassHelper\EFClass.cs" />
     <Compile Include="ClassHelper\StringExtensions.cs" />
     <Compile Include="Models\Category.cs">

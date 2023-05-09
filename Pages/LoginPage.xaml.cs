@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.Design;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ClothingStore.ClassHelper;
-using ClothingStore.TestService;
+using ClothingStore.Models;
 
 namespace ClothingStore.Pages
 {
@@ -13,11 +14,15 @@ namespace ClothingStore.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        private bool IsPhone;
+        private bool isPhone;
+        private List<string> OldValues, NewValues;
 
         public LoginPage()
         {
             InitializeComponent();
+
+            OldValues = new List<string>();
+            NewValues = new List<string>();
         }
         
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
@@ -38,62 +43,65 @@ namespace ClothingStore.Pages
 
         private void ButtonEnter_Click(object sender, RoutedEventArgs e)
         {
-            if (FormsValidation())
+            NewValues.AddRange( new string[] { TextBoxPhoneOrEmail.Text, PasswordBoxPassword.Password });
+
+            if (CheckingForRepeat())
             {
-                ClearAllValidationMarks();
-
-                if (IsPhone)
+                if (FormsValidation())
                 {
-                    MessageBox.Show("Всё супер, введён телефон");
+                    ClearValidationMarks();
 
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == PasswordBoxPassword.Password);
-
-                    if (employee is null)
-                    {
-                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
-
-                        if (customer is null)
-                        {
-                            MessageBox.Show("Такого пользователя не существует");
-                            return;
-                        }
-
-                        CurrentUser.currentCustomer = customer;
-                    }
-                    else
-                    {
-                        CurrentUser.currentEmployee = employee;
-                    }
+                    Login();
                 }
-                else
-                {
-                    MessageBox.Show("Всё супер, введёна почта");
-
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Email == TextBoxPhoneOrEmail.Text);
-
-                    if (employee is null)
-                    {
-                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Email == TextBoxPhoneOrEmail.Text);
-
-                        if (customer is null)
-                        {
-                            MessageBox.Show("Такого пользователя не существует");
-                            return;
-                        }
-                          
-                        CurrentUser.currentCustomer = customer;
-                    }
-                    else
-                    {
-                        CurrentUser.currentEmployee = employee;
-                    }
-                }
-
-                MainWindow mainWindow = new MainWindow();
-                NavigateClass.currentWindow.Close();
-                NavigateClass.currentWindow = mainWindow; ;
-                mainWindow.Show();
             }
+        }
+
+        private void Login()
+        {
+            GetUserFromDB();
+
+            if (UserData.CurrentUser != null)
+            {
+                UserData.CurrentEmployee = EFClass.Context.Employee.FirstOrDefault(e => e.FK_User_Id == UserData.CurrentUser.PK_User_Id);
+
+                if (UserData.CurrentEmployee != null)
+                {
+                    UserData.CurrentClient = EFClass.Context.Client.FirstOrDefault(e => e.FK_User_Id == UserData.CurrentUser.PK_User_Id);
+                }
+
+                GoToNextWindow();
+            }
+            else
+            {
+                MessageBox.Show("Логин или пароль введены неверно. Убедитесь в корректности данных.");
+            }
+        }
+
+        private void GetUserFromDB()
+        {
+            User userAuth = new User();
+
+            if (isPhone)
+            {
+                userAuth = EFClass.Context.User.FirstOrDefault(u => u.PhoneNumber == TextBoxPhoneOrEmail.Text && u.Password == PasswordBoxPassword.Password);
+            }
+            else
+            {
+                userAuth = EFClass.Context.User.FirstOrDefault(u => u.Email == TextBoxPhoneOrEmail.Text && u.Password == PasswordBoxPassword.Password);
+            }
+
+            if (userAuth != null)
+            {
+                UserData.CurrentUser = userAuth;
+            }
+        }
+
+        private void GoToNextWindow()
+        {
+            MainWindow mainWindow = new MainWindow();
+            NavigateClass.currentWindow.Close();
+            NavigateClass.currentWindow = mainWindow; ;
+            mainWindow.Show();
         }
 
         private bool FormsValidation()
@@ -109,7 +117,7 @@ namespace ClothingStore.Pages
                 }
                 else
                 {
-                    IsPhone = false;
+                    isPhone = false;
                 }
             }
             else
@@ -121,7 +129,7 @@ namespace ClothingStore.Pages
                 }
                 else
                 {
-                    IsPhone = true;
+                    isPhone = true;
                 }
             }
 
@@ -135,10 +143,25 @@ namespace ClothingStore.Pages
             return IsMistakesNotExist;
         }
 
-        private void ClearAllValidationMarks()
+        private void ClearValidationMarks()
         {
             BorderPhoneOrEmailException.Visibility = Visibility.Hidden;
             BorderPasswordException.Visibility = Visibility.Hidden;
+        }
+
+        private bool CheckingForRepeat()
+        {
+            if (OldValues.SequenceEqual(NewValues))
+            {
+                NewValues.Clear();
+                return false;
+            }
+
+            OldValues.Clear();
+            NewValues.ForEach(x => OldValues.Add(x));
+            NewValues.Clear();
+
+            return true;
         }
 
         private void TextBoxPhoneOrEmail_LostFocus(object sender, RoutedEventArgs e)
