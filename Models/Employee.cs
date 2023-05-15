@@ -23,6 +23,7 @@ namespace ClothingStore.Models
         public int PK_Employee_Id { get; set; }
         public int FK_Role_Id { get; set; }
         public int FK_User_Id { get; set; }
+        public decimal Salary { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual User User { get; set; }
