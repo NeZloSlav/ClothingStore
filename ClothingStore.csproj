@@ -82,11 +82,6 @@
     <Compile Include="Pages\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestModel\Customer.cs" />
-    <Compile Include="TestModel\Employee.cs" />
-    <Compile Include="TestModel\Gender.cs" />
-    <Compile Include="TestService\CustomerService.cs" />
-    <Compile Include="TestService\EmployeeService.cs" />
     <Compile Include="Windows\LogRegWindow.xaml.cs">
       <DependentUpon>LogRegWindow.xaml</DependentUpon>
     </Compile>

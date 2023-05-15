@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ClothingStore.ClassHelper;
-using ClothingStore.TestService;
 
 namespace ClothingStore.Pages
 {
@@ -46,43 +45,43 @@ namespace ClothingStore.Pages
                 {
                     MessageBox.Show("Всё супер, введён телефон");
 
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == );
-                    if (employee is null)
-                    {
-                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
-                        if (customer is null)
-                        {
-                            MessageBox.Show("Такого пользователя не существует");
-                            return;
-                        }
+                    //var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text && u.Password == TextBoxPhoneOrEmail.Text);
+                    //if (employee is null)
+                    //{
+                    //    var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                    //    if (customer is null)
+                    //    {
+                    //        MessageBox.Show("Такого пользователя не существует");
+                    //        return;
+                    //    }
 
-                        CurrentUser.currentCustomer = customer;
-                    }
-                    else
-                    {
-                        CurrentUser.currentEmployee = employee;
-                    }
+                    //    CurrentUser.currentCustomer = customer;
+                    //}
+                    //else
+                    //{
+                    //    CurrentUser.currentEmployee = employee;
+                    //}
                 }
                 else
                 {
                     MessageBox.Show("Всё супер, введёна почта");
 
-                    var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
-                    if (employee is null)
-                    {
-                        var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
-                        if (customer is null)
-                        {
-                            MessageBox.Show("Такого пользователя не существует");
-                            return;
-                        }
+                    //var employee = EmployeeService.Employees.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                    //if (employee is null)
+                    //{
+                    //    var customer = CustomerService.Customers.FirstOrDefault(u => u.Phone == TextBoxPhoneOrEmail.Text);
+                    //    if (customer is null)
+                    //    {
+                    //        MessageBox.Show("Такого пользователя не существует");
+                    //        return;
+                    //    }
                           
-                        CurrentUser.currentCustomer = customer;
-                    }
-                    else
-                    {
-                        CurrentUser.currentEmployee = employee;
-                    }
+                    //    CurrentUser.currentCustomer = customer;
+                    //}
+                    //else
+                    //{
+                    //    CurrentUser.currentEmployee = employee;
+                    //}
                 }
 
                 MainWindow mainWindow = new MainWindow();
@@ -121,7 +120,7 @@ namespace ClothingStore.Pages
                 }
             }
 
-            if (!TextBoxPassword.Password.ValidatePassword(true))
+            if (!PasswordBoxPassword.Password.ValidatePassword(true))
             {
                 BorderPasswordException.Visibility = Visibility.Visible;
                 IsMistakesNotExist = false;

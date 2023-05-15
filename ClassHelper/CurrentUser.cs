@@ -1,5 +1,4 @@
-﻿using ClothingStore.TestModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +8,8 @@ namespace ClothingStore.ClassHelper
 {
     public class CurrentUser
     {
-        public static Employee currentEmployee;
+        //public static Employee currentEmployee;
 
-        public static Customer currentCustomer;
+        //public static Customer currentCustomer;
     }
 }
