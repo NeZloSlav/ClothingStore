@@ -20,10 +20,10 @@ namespace ClothingStore.Models
             this.OrderProduct = new HashSet<OrderProduct>();
         }
     
-        public int PK_Order_Id { get; set; }
-        public int FK_Client_Id { get; set; }
-        public int FK_Employee_Id { get; set; }
-        public int FK_Status_Id { get; set; }
+        public int OrderId { get; set; }
+        public int ClientId { get; set; }
+        public int EmployeeId { get; set; }
+        public int StatusId { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Employee Employee { get; set; }

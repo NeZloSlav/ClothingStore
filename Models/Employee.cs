@@ -20,9 +20,9 @@ namespace ClothingStore.Models
             this.Order = new HashSet<Order>();
         }
     
-        public int PK_Employee_Id { get; set; }
-        public int FK_Role_Id { get; set; }
-        public int FK_User_Id { get; set; }
+        public int EmployeeId { get; set; }
+        public int RoleId { get; set; }
+        public int UserId { get; set; }
     
         public virtual Role Role { get; set; }
         public virtual User User { get; set; }

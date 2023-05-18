@@ -62,11 +62,11 @@ namespace ClothingStore.Pages
 
             if (UserData.CurrentUser != null)
             {
-                UserData.CurrentEmployee = EFClass.Context.Employee.FirstOrDefault(e => e.FK_User_Id == UserData.CurrentUser.PK_User_Id);
+                UserData.CurrentEmployee = EFClass.Context.Employee.FirstOrDefault(e => e.UserId == UserData.CurrentUser.UserId);
 
                 if (UserData.CurrentEmployee != null)
                 {
-                    UserData.CurrentClient = EFClass.Context.Client.FirstOrDefault(e => e.FK_User_Id == UserData.CurrentUser.PK_User_Id);
+                    UserData.CurrentClient = EFClass.Context.Client.FirstOrDefault(e => e.UserId == UserData.CurrentUser.UserId);
                 }
 
                 GoToNextWindow();

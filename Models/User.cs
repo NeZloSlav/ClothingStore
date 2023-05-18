@@ -21,7 +21,7 @@ namespace ClothingStore.Models
             this.Employee = new HashSet<Employee>();
         }
     
-        public int PK_User_Id { get; set; }
+        public int UserId { get; set; }
         public string Password { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -29,7 +29,7 @@ namespace ClothingStore.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public System.DateTime Birthday { get; set; }
-        public int FK_Gender_Id { get; set; }
+        public int GenderId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Client { get; set; }

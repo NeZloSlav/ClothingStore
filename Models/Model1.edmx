@@ -7,98 +7,99 @@
       <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="PK_Category_Id" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="PK_Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="PK_Client_Id" />
+            <PropertyRef Name="ClientId" />
           </Key>
-          <Property Name="PK_Client_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FK_User_Id" Type="int" Nullable="false" />
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ClothingBarn">
           <Key>
-            <PropertyRef Name="PK_ClothingBarn_Id" />
+            <PropertyRef Name="ClothingBarnId" />
           </Key>
-          <Property Name="PK_ClothingBarn_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FK_Color_Id" Type="int" Nullable="false" />
-          <Property Name="FK_Size_Id" Type="int" Nullable="false" />
-          <Property Name="FK_Product_Id" Type="int" Nullable="false" />
+          <Property Name="ClothingBarnId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorId" Type="int" Nullable="false" />
+          <Property Name="SizeId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
-            <PropertyRef Name="PK_Color_Id" />
+            <PropertyRef Name="ColorId" />
           </Key>
-          <Property Name="PK_Color_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ColorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="PK_Employee_Id" />
+            <PropertyRef Name="EmployeeId" />
           </Key>
-          <Property Name="PK_Employee_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FK_Role_Id" Type="int" Nullable="false" />
-          <Property Name="FK_User_Id" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="PK_Gender_Id" />
+            <PropertyRef Name="GenderId" />
           </Key>
-          <Property Name="PK_Gender_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
-            <PropertyRef Name="PK_Order_Id" />
+            <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="PK_Order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FK_Client_Id" Type="int" Nullable="false" />
-          <Property Name="FK_Employee_Id" Type="int" Nullable="false" />
-          <Property Name="FK_Status_Id" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderProduct">
           <Key>
-            <PropertyRef Name="PK_OrderProduct_Id" />
+            <PropertyRef Name="OrderProductId" />
           </Key>
-          <Property Name="PK_OrderProduct_Id" Type="int" Nullable="false" />
-          <Property Name="FK_Order_Id" Type="int" Nullable="false" />
+          <Property Name="OrderProductId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="FK_ClothingBarn_Id" Type="int" Nullable="false" />
+          <Property Name="ClothingBarnId" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="PK_Product_Id" />
+            <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="PK_Product_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="FK_Category_Id" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="PK_Role_Id" />
+            <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="PK_Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
-            <PropertyRef Name="PK_Size_Id" />
+            <PropertyRef Name="SizeId" />
           </Key>
-          <Property Name="PK_Size_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SizeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Size" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="FK_Category_Id" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
-            <PropertyRef Name="PK_Status_Id" />
+            <PropertyRef Name="StatusId" />
           </Key>
-          <Property Name="PK_Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -113,9 +114,9 @@
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="PK_User_Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="PK_User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -123,173 +124,173 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Birthday" Type="date" Nullable="false" />
-          <Property Name="FK_Gender_Id" Type="int" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Client_User1">
+        <Association Name="FK_Client_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
-              <PropertyRef Name="PK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Client">
-              <PropertyRef Name="FK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Color">
+        <Association Name="FK_ClothingBarn_Color1">
           <End Role="Color" Type="Self.Color" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
-              <PropertyRef Name="PK_Color_Id" />
+              <PropertyRef Name="ColorId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Color_Id" />
+              <PropertyRef Name="ColorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Product">
+        <Association Name="FK_ClothingBarn_Product1">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
-              <PropertyRef Name="PK_Product_Id" />
+              <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Product_Id" />
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Size">
+        <Association Name="FK_ClothingBarn_Size1">
           <End Role="Size" Type="Self.Size" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Size">
-              <PropertyRef Name="PK_Size_Id" />
+              <PropertyRef Name="SizeId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Size_Id" />
+              <PropertyRef Name="SizeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Role">
+        <Association Name="FK_Employee_Role1">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="PK_Role_Id" />
+              <PropertyRef Name="RoleId" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="FK_Role_Id" />
+              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_User1">
+        <Association Name="FK_Employee_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
-              <PropertyRef Name="PK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="FK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Client1">
+        <Association Name="FK_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="PK_Client_Id" />
+              <PropertyRef Name="ClientId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Client_Id" />
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Employee1">
+        <Association Name="FK_Order_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
-              <PropertyRef Name="PK_Employee_Id" />
+              <PropertyRef Name="EmployeeId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Employee_Id" />
+              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Status1">
+        <Association Name="FK_Order_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
-              <PropertyRef Name="PK_Status_Id" />
+              <PropertyRef Name="StatusId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Status_Id" />
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_ClothingBarn1">
+        <Association Name="FK_OrderProduct_ClothingBarn">
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClothingBarn">
-              <PropertyRef Name="PK_ClothingBarn_Id" />
+              <PropertyRef Name="ClothingBarnId" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="FK_ClothingBarn_Id" />
+              <PropertyRef Name="ClothingBarnId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_Order1">
+        <Association Name="FK_OrderProduct_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
-              <PropertyRef Name="PK_Order_Id" />
+              <PropertyRef Name="OrderId" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="FK_Order_Id" />
+              <PropertyRef Name="OrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_Category1">
+        <Association Name="FK_Product_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="PK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="FK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Size_Category1">
+        <Association Name="FK_Size_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Size" Type="Self.Size" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="PK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Size">
-              <PropertyRef Name="FK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Gender1">
+        <Association Name="FK_User_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
-              <PropertyRef Name="PK_Gender_Id" />
+              <PropertyRef Name="GenderId" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="FK_Gender_Id" />
+              <PropertyRef Name="GenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -339,59 +340,59 @@
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Client_User1" Association="Self.FK_Client_User1">
+          <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Color" Association="Self.FK_ClothingBarn_Color">
+          <AssociationSet Name="FK_ClothingBarn_Color1" Association="Self.FK_ClothingBarn_Color1">
             <End Role="Color" EntitySet="Color" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Product" Association="Self.FK_ClothingBarn_Product">
+          <AssociationSet Name="FK_ClothingBarn_Product1" Association="Self.FK_ClothingBarn_Product1">
             <End Role="Product" EntitySet="Product" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Size" Association="Self.FK_ClothingBarn_Size">
+          <AssociationSet Name="FK_ClothingBarn_Size1" Association="Self.FK_ClothingBarn_Size1">
             <End Role="Size" EntitySet="Size" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Role" Association="Self.FK_Employee_Role">
+          <AssociationSet Name="FK_Employee_Role1" Association="Self.FK_Employee_Role1">
             <End Role="Role" EntitySet="Role" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_User1" Association="Self.FK_Employee_User1">
+          <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Client1" Association="Self.FK_Order_Client1">
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Employee1" Association="Self.FK_Order_Employee1">
+          <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Status1" Association="Self.FK_Order_Status1">
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_ClothingBarn1" Association="Self.FK_OrderProduct_ClothingBarn1">
+          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="Self.FK_OrderProduct_ClothingBarn">
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_Order1" Association="Self.FK_OrderProduct_Order1">
+          <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_Category1" Association="Self.FK_Product_Category1">
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Size_Category1" Association="Self.FK_Size_Category1">
+          <AssociationSet Name="FK_Size_Category" Association="Self.FK_Size_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Size" EntitySet="Size" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Gender1" Association="Self.FK_User_Gender1">
+          <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
@@ -403,124 +404,125 @@
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="PK_Category_Id" />
+            <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="PK_Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category1" FromRole="Category" ToRole="Product" />
-          <NavigationProperty Name="Size" Relationship="Self.FK_Size_Category1" FromRole="Category" ToRole="Size" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="Self.FK_Size_Category" FromRole="Category" ToRole="Size" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="PK_Client_Id" />
+            <PropertyRef Name="ClientId" />
           </Key>
-          <Property Name="PK_Client_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_User_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Client_User1" FromRole="Client" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client1" FromRole="Client" ToRole="Order" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Client_User" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
         </EntityType>
         <EntityType Name="ClothingBarn">
           <Key>
-            <PropertyRef Name="PK_ClothingBarn_Id" />
+            <PropertyRef Name="ClothingBarnId" />
           </Key>
-          <Property Name="PK_ClothingBarn_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Color_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_Size_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_Product_Id" Type="Int32" Nullable="false" />
+          <Property Name="ClothingBarnId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Color" Relationship="Self.FK_ClothingBarn_Color" FromRole="ClothingBarn" ToRole="Color" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_ClothingBarn_Product" FromRole="ClothingBarn" ToRole="Product" />
-          <NavigationProperty Name="Size" Relationship="Self.FK_ClothingBarn_Size" FromRole="ClothingBarn" ToRole="Size" />
-          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_ClothingBarn1" FromRole="ClothingBarn" ToRole="OrderProduct" />
+          <NavigationProperty Name="Color" Relationship="Self.FK_ClothingBarn_Color1" FromRole="ClothingBarn" ToRole="Color" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ClothingBarn_Product1" FromRole="ClothingBarn" ToRole="Product" />
+          <NavigationProperty Name="Size" Relationship="Self.FK_ClothingBarn_Size1" FromRole="ClothingBarn" ToRole="Size" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_ClothingBarn" FromRole="ClothingBarn" ToRole="OrderProduct" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
-            <PropertyRef Name="PK_Color_Id" />
+            <PropertyRef Name="ColorId" />
           </Key>
-          <Property Name="PK_Color_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Color" FromRole="Color" ToRole="ClothingBarn" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Color1" FromRole="Color" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
-            <PropertyRef Name="PK_Employee_Id" />
+            <PropertyRef Name="EmployeeId" />
           </Key>
-          <Property Name="PK_Employee_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Role_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_User_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Employee_User1" FromRole="Employee" ToRole="User" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Employee1" FromRole="Employee" ToRole="Order" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Employee_Role1" FromRole="Employee" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Employee_User" FromRole="Employee" ToRole="User" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="PK_Gender_Id" />
+            <PropertyRef Name="GenderId" />
           </Key>
-          <Property Name="PK_Gender_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Gender1" FromRole="Gender" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Gender" FromRole="Gender" ToRole="User" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
-            <PropertyRef Name="PK_Order_Id" />
+            <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="PK_Order_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Client_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_Employee_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_Status_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client1" FromRole="Order" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Order_Employee1" FromRole="Order" ToRole="Employee" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_Order_Status1" FromRole="Order" ToRole="Status" />
-          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_Order1" FromRole="Order" ToRole="OrderProduct" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Order_Status" FromRole="Order" ToRole="Status" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_Order" FromRole="Order" ToRole="OrderProduct" />
         </EntityType>
         <EntityType Name="OrderProduct">
           <Key>
-            <PropertyRef Name="PK_OrderProduct_Id" />
+            <PropertyRef Name="OrderProductId" />
           </Key>
-          <Property Name="PK_OrderProduct_Id" Type="Int32" Nullable="false" />
-          <Property Name="FK_Order_Id" Type="Int32" Nullable="false" />
+          <Property Name="OrderProductId" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="FK_ClothingBarn_Id" Type="Int32" Nullable="false" />
+          <Property Name="ClothingBarnId" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_OrderProduct_ClothingBarn1" FromRole="OrderProduct" ToRole="ClothingBarn" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order1" FromRole="OrderProduct" ToRole="Order" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_OrderProduct_ClothingBarn" FromRole="OrderProduct" ToRole="ClothingBarn" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="PK_Product_Id" />
+            <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="PK_Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="FK_Category_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category1" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Product" FromRole="Product" ToRole="ClothingBarn" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Product1" FromRole="Product" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="PK_Role_Id" />
+            <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="PK_Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Role" FromRole="Role" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Role1" FromRole="Role" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
-            <PropertyRef Name="PK_Size_Id" />
+            <PropertyRef Name="SizeId" />
           </Key>
-          <Property Name="PK_Size_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Size1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FK_Category_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Size_Category1" FromRole="Size" ToRole="Category" />
-          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Size" FromRole="Size" ToRole="ClothingBarn" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Size_Category" FromRole="Size" ToRole="Category" />
+          <NavigationProperty Name="ClothingBarn" Relationship="Self.FK_ClothingBarn_Size1" FromRole="Size" ToRole="ClothingBarn" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
-            <PropertyRef Name="PK_Status_Id" />
+            <PropertyRef Name="StatusId" />
           </Key>
-          <Property Name="PK_Status_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Status1" FromRole="Status" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Status" FromRole="Status" ToRole="Order" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -534,9 +536,9 @@
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="PK_User_Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="PK_User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -544,176 +546,176 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FK_Gender_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_User1" FromRole="User" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_User1" FromRole="User" ToRole="Employee" />
-          <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender1" FromRole="User" ToRole="Gender" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
         </EntityType>
-        <Association Name="FK_Product_Category1">
+        <Association Name="FK_Product_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="PK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="FK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Size_Category1">
+        <Association Name="FK_Size_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Size" Type="Self.Size" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="PK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Principal>
             <Dependent Role="Size">
-              <PropertyRef Name="FK_Category_Id" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Client_User1">
+        <Association Name="FK_Client_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
-              <PropertyRef Name="PK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Client">
-              <PropertyRef Name="FK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Client1">
+        <Association Name="FK_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="PK_Client_Id" />
+              <PropertyRef Name="ClientId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Client_Id" />
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Color">
+        <Association Name="FK_ClothingBarn_Color1">
           <End Role="Color" Type="Self.Color" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
-              <PropertyRef Name="PK_Color_Id" />
+              <PropertyRef Name="ColorId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Color_Id" />
+              <PropertyRef Name="ColorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Product">
+        <Association Name="FK_ClothingBarn_Product1">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
-              <PropertyRef Name="PK_Product_Id" />
+              <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Product_Id" />
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ClothingBarn_Size">
+        <Association Name="FK_ClothingBarn_Size1">
           <End Role="Size" Type="Self.Size" Multiplicity="1" />
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Size">
-              <PropertyRef Name="PK_Size_Id" />
+              <PropertyRef Name="SizeId" />
             </Principal>
             <Dependent Role="ClothingBarn">
-              <PropertyRef Name="FK_Size_Id" />
+              <PropertyRef Name="SizeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_ClothingBarn1">
+        <Association Name="FK_OrderProduct_ClothingBarn">
           <End Role="ClothingBarn" Type="Self.ClothingBarn" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClothingBarn">
-              <PropertyRef Name="PK_ClothingBarn_Id" />
+              <PropertyRef Name="ClothingBarnId" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="FK_ClothingBarn_Id" />
+              <PropertyRef Name="ClothingBarnId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Role">
+        <Association Name="FK_Employee_Role1">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="PK_Role_Id" />
+              <PropertyRef Name="RoleId" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="FK_Role_Id" />
+              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_User1">
+        <Association Name="FK_Employee_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
-              <PropertyRef Name="PK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="FK_User_Id" />
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Employee1">
+        <Association Name="FK_Order_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
-              <PropertyRef Name="PK_Employee_Id" />
+              <PropertyRef Name="EmployeeId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Employee_Id" />
+              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Gender1">
+        <Association Name="FK_User_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
-              <PropertyRef Name="PK_Gender_Id" />
+              <PropertyRef Name="GenderId" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="FK_Gender_Id" />
+              <PropertyRef Name="GenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Status1">
+        <Association Name="FK_Order_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
-              <PropertyRef Name="PK_Status_Id" />
+              <PropertyRef Name="StatusId" />
             </Principal>
             <Dependent Role="Order">
-              <PropertyRef Name="FK_Status_Id" />
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderProduct_Order1">
+        <Association Name="FK_OrderProduct_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
-              <PropertyRef Name="PK_Order_Id" />
+              <PropertyRef Name="OrderId" />
             </Principal>
             <Dependent Role="OrderProduct">
-              <PropertyRef Name="FK_Order_Id" />
+              <PropertyRef Name="OrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -732,59 +734,59 @@
           <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Product_Category1" Association="Self.FK_Product_Category1">
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Size_Category1" Association="Self.FK_Size_Category1">
+          <AssociationSet Name="FK_Size_Category" Association="Self.FK_Size_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Size" EntitySet="Size" />
           </AssociationSet>
-          <AssociationSet Name="FK_Client_User1" Association="Self.FK_Client_User1">
+          <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Client1" Association="Self.FK_Order_Client1">
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Color" Association="Self.FK_ClothingBarn_Color">
+          <AssociationSet Name="FK_ClothingBarn_Color1" Association="Self.FK_ClothingBarn_Color1">
             <End Role="Color" EntitySet="Color" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Product" Association="Self.FK_ClothingBarn_Product">
+          <AssociationSet Name="FK_ClothingBarn_Product1" Association="Self.FK_ClothingBarn_Product1">
             <End Role="Product" EntitySet="Product" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_ClothingBarn_Size" Association="Self.FK_ClothingBarn_Size">
+          <AssociationSet Name="FK_ClothingBarn_Size1" Association="Self.FK_ClothingBarn_Size1">
             <End Role="Size" EntitySet="Size" />
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_ClothingBarn1" Association="Self.FK_OrderProduct_ClothingBarn1">
+          <AssociationSet Name="FK_OrderProduct_ClothingBarn" Association="Self.FK_OrderProduct_ClothingBarn">
             <End Role="ClothingBarn" EntitySet="ClothingBarn" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Role" Association="Self.FK_Employee_Role">
+          <AssociationSet Name="FK_Employee_Role1" Association="Self.FK_Employee_Role1">
             <End Role="Role" EntitySet="Role" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_User1" Association="Self.FK_Employee_User1">
+          <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Employee1" Association="Self.FK_Order_Employee1">
+          <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Gender1" Association="Self.FK_User_Gender1">
+          <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Status1" Association="Self.FK_Order_Status1">
+          <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderProduct_Order1" Association="Self.FK_OrderProduct_Order1">
+          <AssociationSet Name="FK_OrderProduct_Order" Association="Self.FK_OrderProduct_Order">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
@@ -839,7 +841,7 @@
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="Model.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="PK_Category_Id" ColumnName="PK_Category_Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -847,18 +849,18 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="Model.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="PK_Client_Id" ColumnName="PK_Client_Id" />
-                <ScalarProperty Name="FK_User_Id" ColumnName="FK_User_Id" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClothingBarn">
             <EntityTypeMapping TypeName="Model.ClothingBarn">
               <MappingFragment StoreEntitySet="ClothingBarn">
-                <ScalarProperty Name="PK_ClothingBarn_Id" ColumnName="PK_ClothingBarn_Id" />
-                <ScalarProperty Name="FK_Color_Id" ColumnName="FK_Color_Id" />
-                <ScalarProperty Name="FK_Size_Id" ColumnName="FK_Size_Id" />
-                <ScalarProperty Name="FK_Product_Id" ColumnName="FK_Product_Id" />
+                <ScalarProperty Name="ClothingBarnId" ColumnName="ClothingBarnId" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -866,7 +868,7 @@
           <EntitySetMapping Name="Color">
             <EntityTypeMapping TypeName="Model.Color">
               <MappingFragment StoreEntitySet="Color">
-                <ScalarProperty Name="PK_Color_Id" ColumnName="PK_Color_Id" />
+                <ScalarProperty Name="ColorId" ColumnName="ColorId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -874,16 +876,16 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="PK_Employee_Id" ColumnName="PK_Employee_Id" />
-                <ScalarProperty Name="FK_Role_Id" ColumnName="FK_Role_Id" />
-                <ScalarProperty Name="FK_User_Id" ColumnName="FK_User_Id" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gender">
             <EntityTypeMapping TypeName="Model.Gender">
               <MappingFragment StoreEntitySet="Gender">
-                <ScalarProperty Name="PK_Gender_Id" ColumnName="PK_Gender_Id" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -891,20 +893,20 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="Model.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="PK_Order_Id" ColumnName="PK_Order_Id" />
-                <ScalarProperty Name="FK_Client_Id" ColumnName="FK_Client_Id" />
-                <ScalarProperty Name="FK_Employee_Id" ColumnName="FK_Employee_Id" />
-                <ScalarProperty Name="FK_Status_Id" ColumnName="FK_Status_Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderProduct">
             <EntityTypeMapping TypeName="Model.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
-                <ScalarProperty Name="PK_OrderProduct_Id" ColumnName="PK_OrderProduct_Id" />
-                <ScalarProperty Name="FK_Order_Id" ColumnName="FK_Order_Id" />
+                <ScalarProperty Name="OrderProductId" ColumnName="OrderProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="FK_ClothingBarn_Id" ColumnName="FK_ClothingBarn_Id" />
+                <ScalarProperty Name="ClothingBarnId" ColumnName="ClothingBarnId" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -912,17 +914,18 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="Model.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="PK_Product_Id" ColumnName="PK_Product_Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="FK_Category_Id" ColumnName="FK_Category_Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="Model.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="PK_Role_Id" ColumnName="PK_Role_Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -930,16 +933,16 @@
           <EntitySetMapping Name="Size">
             <EntityTypeMapping TypeName="Model.Size">
               <MappingFragment StoreEntitySet="Size">
-                <ScalarProperty Name="PK_Size_Id" ColumnName="PK_Size_Id" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
                 <ScalarProperty Name="Size1" ColumnName="Size" />
-                <ScalarProperty Name="FK_Category_Id" ColumnName="FK_Category_Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="Model.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="PK_Status_Id" ColumnName="PK_Status_Id" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -958,7 +961,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="PK_User_Id" ColumnName="PK_User_Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -966,7 +969,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="FK_Gender_Id" ColumnName="FK_Gender_Id" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,10 +14,10 @@ namespace ClothingStore.Models
     
     public partial class OrderProduct
     {
-        public int PK_OrderProduct_Id { get; set; }
-        public int FK_Order_Id { get; set; }
+        public int OrderProductId { get; set; }
+        public int OrderId { get; set; }
         public int Quantity { get; set; }
-        public int FK_ClothingBarn_Id { get; set; }
+        public int ClothingBarnId { get; set; }
         public decimal Price { get; set; }
     
         public virtual ClothingBarn ClothingBarn { get; set; }

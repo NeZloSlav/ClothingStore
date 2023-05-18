@@ -20,8 +20,8 @@ namespace ClothingStore.Models
             this.Order = new HashSet<Order>();
         }
     
-        public int PK_Client_Id { get; set; }
-        public int FK_User_Id { get; set; }
+        public int ClientId { get; set; }
+        public int UserId { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

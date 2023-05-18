@@ -21,7 +21,7 @@ namespace ClothingStore.Models
             this.Size = new HashSet<Size>();
         }
     
-        public int PK_Category_Id { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

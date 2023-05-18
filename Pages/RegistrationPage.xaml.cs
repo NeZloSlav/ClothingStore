@@ -143,7 +143,7 @@ namespace ClothingStore.Pages
                     PhoneNumber = TextBoxPhone.Text,
                     Password = PasswordBoxPassword.Password,
                     Birthday = DataPickerBirthday.SelectedDate.Value,
-                    FK_Gender_Id = GetGenderId(),
+                    GenderId = GetGenderId(),
                 };
 
                 EFClass.Context.User.Add(user);
@@ -153,7 +153,7 @@ namespace ClothingStore.Pages
 
                 var client = new Client
                 {
-                    FK_User_Id = user.PK_User_Id
+                    UserId = user.UserId
                 };
 
                 EFClass.Context.Client.Add(client);
